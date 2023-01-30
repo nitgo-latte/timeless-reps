@@ -1,0 +1,70 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+generator typegraphql {
+  provider = "typegraphql-prisma"
+  output   = "../prisma/generated/type-graphql"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model MuscleGroup {
+  id        Int        @id @default(autoincrement())
+  name      String     @unique
+  exercises Exercise[]
+}
+
+model Exercise {
+  id                Int                 @id @default(autoincrement())
+  name              String              @unique
+  muscleGroups      MuscleGroup[]
+  difficulty        Difficulty
+  ExercisingSession ExercisingSession[]
+}
+
+enum Difficulty {
+  EASY
+  MEDIUM
+  HARD
+}
+
+model BreathingChain {
+  id                 String              @id @default(cuid())
+  createdAt          DateTime            @default(now())
+  updatedAt          DateTime
+  exercisingSessions ExercisingSession[]
+}
+
+model ExercisingSession {
+  id               Int            @id @default(autoincrement())
+  exercise         Exercise       @relation(fields: [exerciseId], references: [id])
+  exerciseId       Int
+  TimeBox          TimeBox[]
+  BreathingChain   BreathingChain @relation(fields: [breathingChainId], references: [id])
+  breathingChainId String         @unique
+}
+
+model TimeBox {
+  id                  String              @id @default(cuid())
+  createdAt           DateTime            @default(now())
+  updatedAt           DateTime
+  interval            ExercisingInterval?
+  session             ExercisingSession   @relation(fields: [exercisingSessionId], references: [id])
+  exercisingSessionId Int
+}
+
+model ExercisingInterval {
+  createdAt DateTime @default(now())
+  closedAt  DateTime
+  TimeBox   TimeBox  @relation(fields: [timeBoxId], references: [id])
+  timeBoxId String   @unique
+
+  @@unique([createdAt, closedAt])
+}
