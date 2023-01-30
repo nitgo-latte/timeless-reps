@@ -1,0 +1,14 @@
+export { AggregateMuscleGroupArgs } from "./AggregateMuscleGroupArgs";
+export { CreateManyMuscleGroupArgs } from "./CreateManyMuscleGroupArgs";
+export { CreateOneMuscleGroupArgs } from "./CreateOneMuscleGroupArgs";
+export { DeleteManyMuscleGroupArgs } from "./DeleteManyMuscleGroupArgs";
+export { DeleteOneMuscleGroupArgs } from "./DeleteOneMuscleGroupArgs";
+export { FindFirstMuscleGroupArgs } from "./FindFirstMuscleGroupArgs";
+export { FindFirstMuscleGroupOrThrowArgs } from "./FindFirstMuscleGroupOrThrowArgs";
+export { FindManyMuscleGroupArgs } from "./FindManyMuscleGroupArgs";
+export { FindUniqueMuscleGroupArgs } from "./FindUniqueMuscleGroupArgs";
+export { FindUniqueMuscleGroupOrThrowArgs } from "./FindUniqueMuscleGroupOrThrowArgs";
+export { GroupByMuscleGroupArgs } from "./GroupByMuscleGroupArgs";
+export { UpdateManyMuscleGroupArgs } from "./UpdateManyMuscleGroupArgs";
+export { UpdateOneMuscleGroupArgs } from "./UpdateOneMuscleGroupArgs";
+export { UpsertOneMuscleGroupArgs } from "./UpsertOneMuscleGroupArgs";
