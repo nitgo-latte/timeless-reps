@@ -16,16 +16,21 @@ export class ExercisingSession {
   })
   id!: number;
 
-  exercise?: Exercise;
+  exercise?: Exercise | null;
 
   @TypeGraphQL.Field(_type => TypeGraphQL.Int, {
     nullable: false
   })
   exerciseId!: number;
 
+  @TypeGraphQL.Field(_type => String, {
+    nullable: true
+  })
+  message?: string | null;
+
   TimeBox?: TimeBox[];
 
-  BreathingChain?: BreathingChain;
+  BreathingChain?: BreathingChain | null;
 
   @TypeGraphQL.Field(_type => String, {
     nullable: false

@@ -10,12 +10,17 @@ import { ExerciseCreateNestedOneWithoutExercisingSessionInput } from "../inputs/
 })
 export class ExercisingSessionCreateWithoutTimeBoxInput {
   @TypeGraphQL.Field(_type => ExerciseCreateNestedOneWithoutExercisingSessionInput, {
-    nullable: false
+    nullable: true
   })
-  exercise!: ExerciseCreateNestedOneWithoutExercisingSessionInput;
+  exercise?: ExerciseCreateNestedOneWithoutExercisingSessionInput | undefined;
+
+  @TypeGraphQL.Field(_type => String, {
+    nullable: true
+  })
+  message?: string | undefined;
 
   @TypeGraphQL.Field(_type => BreathingChainCreateNestedOneWithoutExercisingSessionsInput, {
-    nullable: false
+    nullable: true
   })
-  BreathingChain!: BreathingChainCreateNestedOneWithoutExercisingSessionsInput;
+  BreathingChain?: BreathingChainCreateNestedOneWithoutExercisingSessionsInput | undefined;
 }

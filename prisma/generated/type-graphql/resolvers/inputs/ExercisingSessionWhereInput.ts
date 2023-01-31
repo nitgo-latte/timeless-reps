@@ -6,6 +6,7 @@ import { BreathingChainRelationFilter } from "../inputs/BreathingChainRelationFi
 import { ExerciseRelationFilter } from "../inputs/ExerciseRelationFilter";
 import { IntFilter } from "../inputs/IntFilter";
 import { StringFilter } from "../inputs/StringFilter";
+import { StringNullableFilter } from "../inputs/StringNullableFilter";
 import { TimeBoxListRelationFilter } from "../inputs/TimeBoxListRelationFilter";
 
 @TypeGraphQL.InputType("ExercisingSessionWhereInput", {
@@ -41,6 +42,11 @@ export class ExercisingSessionWhereInput {
     nullable: true
   })
   exerciseId?: IntFilter | undefined;
+
+  @TypeGraphQL.Field(_type => StringNullableFilter, {
+    nullable: true
+  })
+  message?: StringNullableFilter | undefined;
 
   @TypeGraphQL.Field(_type => TimeBoxListRelationFilter, {
     nullable: true

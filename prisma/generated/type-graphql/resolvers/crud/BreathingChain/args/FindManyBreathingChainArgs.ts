@@ -35,5 +35,5 @@ export class FindManyBreathingChainArgs {
   @TypeGraphQL.Field(_type => [BreathingChainScalarFieldEnum], {
     nullable: true
   })
-  distinct?: Array<"id" | "createdAt" | "updatedAt"> | undefined;
+  distinct?: Array<"id" | "description" | "createdAt" | "updatedAt"> | undefined;
 }

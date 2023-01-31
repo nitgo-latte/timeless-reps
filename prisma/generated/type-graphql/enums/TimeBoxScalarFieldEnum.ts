@@ -4,6 +4,8 @@ export enum TimeBoxScalarFieldEnum {
   id = "id",
   createdAt = "createdAt",
   updatedAt = "updatedAt",
+  closedAt = "closedAt",
+  resting = "resting",
   exercisingSessionId = "exercisingSessionId"
 }
 TypeGraphQL.registerEnumType(TimeBoxScalarFieldEnum, {

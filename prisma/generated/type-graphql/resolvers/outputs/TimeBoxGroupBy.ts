@@ -27,6 +27,16 @@ export class TimeBoxGroupBy {
   })
   updatedAt!: Date;
 
+  @TypeGraphQL.Field(_type => Date, {
+    nullable: false
+  })
+  closedAt!: Date;
+
+  @TypeGraphQL.Field(_type => Boolean, {
+    nullable: false
+  })
+  resting!: boolean;
+
   @TypeGraphQL.Field(_type => TypeGraphQL.Int, {
     nullable: false
   })

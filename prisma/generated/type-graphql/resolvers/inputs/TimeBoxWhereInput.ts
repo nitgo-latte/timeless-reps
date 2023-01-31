@@ -2,8 +2,8 @@ import * as TypeGraphQL from "type-graphql";
 import * as GraphQLScalars from "graphql-scalars";
 import { Prisma } from "@prisma/client";
 import { DecimalJSScalar } from "../../scalars";
+import { BoolFilter } from "../inputs/BoolFilter";
 import { DateTimeFilter } from "../inputs/DateTimeFilter";
-import { ExercisingIntervalRelationFilter } from "../inputs/ExercisingIntervalRelationFilter";
 import { ExercisingSessionRelationFilter } from "../inputs/ExercisingSessionRelationFilter";
 import { IntFilter } from "../inputs/IntFilter";
 import { StringFilter } from "../inputs/StringFilter";
@@ -35,22 +35,17 @@ export class TimeBoxWhereInput {
   @TypeGraphQL.Field(_type => DateTimeFilter, {
     nullable: true
   })
-  createdAt?: DateTimeFilter | undefined;
+  closedAt?: DateTimeFilter | undefined;
 
-  @TypeGraphQL.Field(_type => DateTimeFilter, {
+  @TypeGraphQL.Field(_type => BoolFilter, {
     nullable: true
   })
-  updatedAt?: DateTimeFilter | undefined;
-
-  @TypeGraphQL.Field(_type => ExercisingIntervalRelationFilter, {
-    nullable: true
-  })
-  interval?: ExercisingIntervalRelationFilter | undefined;
+  resting?: BoolFilter | undefined;
 
   @TypeGraphQL.Field(_type => ExercisingSessionRelationFilter, {
     nullable: true
   })
-  session?: ExercisingSessionRelationFilter | undefined;
+  exercisingSession?: ExercisingSessionRelationFilter | undefined;
 
   @TypeGraphQL.Field(_type => IntFilter, {
     nullable: true

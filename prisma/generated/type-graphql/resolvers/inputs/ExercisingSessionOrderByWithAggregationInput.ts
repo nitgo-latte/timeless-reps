@@ -26,6 +26,11 @@ export class ExercisingSessionOrderByWithAggregationInput {
   @TypeGraphQL.Field(_type => SortOrder, {
     nullable: true
   })
+  message?: "asc" | "desc" | undefined;
+
+  @TypeGraphQL.Field(_type => SortOrder, {
+    nullable: true
+  })
   breathingChainId?: "asc" | "desc" | undefined;
 
   @TypeGraphQL.Field(_type => ExercisingSessionCountOrderByAggregateInput, {

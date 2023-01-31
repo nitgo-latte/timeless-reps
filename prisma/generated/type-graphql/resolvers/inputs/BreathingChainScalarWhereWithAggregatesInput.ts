@@ -29,13 +29,8 @@ export class BreathingChainScalarWhereWithAggregatesInput {
   })
   id?: StringWithAggregatesFilter | undefined;
 
-  @TypeGraphQL.Field(_type => DateTimeWithAggregatesFilter, {
+  @TypeGraphQL.Field(_type => StringWithAggregatesFilter, {
     nullable: true
   })
-  createdAt?: DateTimeWithAggregatesFilter | undefined;
-
-  @TypeGraphQL.Field(_type => DateTimeWithAggregatesFilter, {
-    nullable: true
-  })
-  updatedAt?: DateTimeWithAggregatesFilter | undefined;
+  description?: StringWithAggregatesFilter | undefined;
 }

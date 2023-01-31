@@ -14,13 +14,8 @@ export class BreathingChainUpdateManyMutationInput {
   })
   id?: StringFieldUpdateOperationsInput | undefined;
 
-  @TypeGraphQL.Field(_type => DateTimeFieldUpdateOperationsInput, {
+  @TypeGraphQL.Field(_type => StringFieldUpdateOperationsInput, {
     nullable: true
   })
-  createdAt?: DateTimeFieldUpdateOperationsInput | undefined;
-
-  @TypeGraphQL.Field(_type => DateTimeFieldUpdateOperationsInput, {
-    nullable: true
-  })
-  updatedAt?: DateTimeFieldUpdateOperationsInput | undefined;
+  description?: StringFieldUpdateOperationsInput | undefined;
 }

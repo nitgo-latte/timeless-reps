@@ -1,7 +1,6 @@
 export { AffectedRowsOutput } from "./AffectedRowsOutput";
 export { AggregateBreathingChain } from "./AggregateBreathingChain";
 export { AggregateExercise } from "./AggregateExercise";
-export { AggregateExercisingInterval } from "./AggregateExercisingInterval";
 export { AggregateExercisingSession } from "./AggregateExercisingSession";
 export { AggregateMuscleGroup } from "./AggregateMuscleGroup";
 export { AggregateTimeBox } from "./AggregateTimeBox";
@@ -17,10 +16,6 @@ export { ExerciseGroupBy } from "./ExerciseGroupBy";
 export { ExerciseMaxAggregate } from "./ExerciseMaxAggregate";
 export { ExerciseMinAggregate } from "./ExerciseMinAggregate";
 export { ExerciseSumAggregate } from "./ExerciseSumAggregate";
-export { ExercisingIntervalCountAggregate } from "./ExercisingIntervalCountAggregate";
-export { ExercisingIntervalGroupBy } from "./ExercisingIntervalGroupBy";
-export { ExercisingIntervalMaxAggregate } from "./ExercisingIntervalMaxAggregate";
-export { ExercisingIntervalMinAggregate } from "./ExercisingIntervalMinAggregate";
 export { ExercisingSessionAvgAggregate } from "./ExercisingSessionAvgAggregate";
 export { ExercisingSessionCount } from "./ExercisingSessionCount";
 export { ExercisingSessionCountAggregate } from "./ExercisingSessionCountAggregate";

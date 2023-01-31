@@ -13,6 +13,11 @@ export class ExercisingSessionCreateManyExerciseInput {
   id?: number | undefined;
 
   @TypeGraphQL.Field(_type => String, {
+    nullable: true
+  })
+  message?: string | undefined;
+
+  @TypeGraphQL.Field(_type => String, {
     nullable: false
   })
   breathingChainId!: string;

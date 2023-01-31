@@ -16,4 +16,9 @@ export class ExercisingSessionCreateManyBreathingChainInput {
     nullable: false
   })
   exerciseId!: number;
+
+  @TypeGraphQL.Field(_type => String, {
+    nullable: true
+  })
+  message?: string | undefined;
 }

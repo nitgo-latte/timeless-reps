@@ -2,7 +2,6 @@ import * as TypeGraphQL from "type-graphql";
 import * as GraphQLScalars from "graphql-scalars";
 import { Prisma } from "@prisma/client";
 import { DecimalJSScalar } from "../scalars";
-import { ExercisingInterval } from "../models/ExercisingInterval";
 import { ExercisingSession } from "../models/ExercisingSession";
 
 @TypeGraphQL.ObjectType("TimeBox", {
@@ -24,9 +23,17 @@ export class TimeBox {
   })
   updatedAt!: Date;
 
-  interval?: ExercisingInterval | null;
+  @TypeGraphQL.Field(_type => Date, {
+    nullable: false
+  })
+  closedAt!: Date;
 
-  session?: ExercisingSession;
+  @TypeGraphQL.Field(_type => Boolean, {
+    nullable: false
+  })
+  resting!: boolean;
+
+  exercisingSession?: ExercisingSession;
 
   @TypeGraphQL.Field(_type => TypeGraphQL.Int, {
     nullable: false

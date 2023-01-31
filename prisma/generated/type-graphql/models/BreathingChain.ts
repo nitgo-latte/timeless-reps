@@ -14,6 +14,11 @@ export class BreathingChain {
   })
   id!: string;
 
+  @TypeGraphQL.Field(_type => String, {
+    nullable: false
+  })
+  description!: string;
+
   @TypeGraphQL.Field(_type => Date, {
     nullable: false
   })

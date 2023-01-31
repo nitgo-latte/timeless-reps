@@ -20,5 +20,10 @@ export class ExercisingSessionMaxAggregate {
   @TypeGraphQL.Field(_type => String, {
     nullable: true
   })
+  message!: string | null;
+
+  @TypeGraphQL.Field(_type => String, {
+    nullable: true
+  })
   breathingChainId!: string | null;
 }

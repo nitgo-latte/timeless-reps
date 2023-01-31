@@ -35,5 +35,5 @@ export class FindFirstTimeBoxArgs {
   @TypeGraphQL.Field(_type => [TimeBoxScalarFieldEnum], {
     nullable: true
   })
-  distinct?: Array<"id" | "createdAt" | "updatedAt" | "exercisingSessionId"> | undefined;
+  distinct?: Array<"id" | "createdAt" | "updatedAt" | "closedAt" | "resting" | "exercisingSessionId"> | undefined;
 }

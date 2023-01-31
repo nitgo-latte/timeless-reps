@@ -9,9 +9,9 @@ import { transformInfoIntoPrismaArgs, getPrismaFromContext, transformCountFieldI
 @TypeGraphQL.Resolver(_of => ExercisingSession)
 export class ExercisingSessionRelationsResolver {
   @TypeGraphQL.FieldResolver(_type => Exercise, {
-    nullable: false
+    nullable: true
   })
-  async exercise(@TypeGraphQL.Root() exercisingSession: ExercisingSession, @TypeGraphQL.Ctx() ctx: any): Promise<Exercise> {
+  async exercise(@TypeGraphQL.Root() exercisingSession: ExercisingSession, @TypeGraphQL.Ctx() ctx: any): Promise<Exercise | null> {
     return getPrismaFromContext(ctx).exercisingSession.findUnique({
       where: {
         id: exercisingSession.id,
@@ -31,9 +31,9 @@ export class ExercisingSessionRelationsResolver {
   }
 
   @TypeGraphQL.FieldResolver(_type => BreathingChain, {
-    nullable: false
+    nullable: true
   })
-  async BreathingChain(@TypeGraphQL.Root() exercisingSession: ExercisingSession, @TypeGraphQL.Ctx() ctx: any): Promise<BreathingChain> {
+  async BreathingChain(@TypeGraphQL.Root() exercisingSession: ExercisingSession, @TypeGraphQL.Ctx() ctx: any): Promise<BreathingChain | null> {
     return getPrismaFromContext(ctx).exercisingSession.findUnique({
       where: {
         id: exercisingSession.id,

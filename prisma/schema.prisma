@@ -37,34 +37,34 @@ enum Difficulty {
 
 model BreathingChain {
   id                 String              @id @default(cuid())
+  description        String              @default("practicing my prana")
+  /// @TypeGraphQL.omit(input: true)
   createdAt          DateTime            @default(now())
-  updatedAt          DateTime
+  /// @TypeGraphQL.omit(input: true)
+  updatedAt          DateTime            @updatedAt
   exercisingSessions ExercisingSession[]
 }
 
 model ExercisingSession {
-  id               Int            @id @default(autoincrement())
-  exercise         Exercise       @relation(fields: [exerciseId], references: [id])
+  id               Int             @id @default(autoincrement())
+  exercise         Exercise?       @relation(fields: [exerciseId], references: [id])
   exerciseId       Int
+  message          String?
   TimeBox          TimeBox[]
-  BreathingChain   BreathingChain @relation(fields: [breathingChainId], references: [id])
-  breathingChainId String         @unique
+  BreathingChain   BreathingChain? @relation(fields: [breathingChainId], references: [id])
+  breathingChainId String
+
+  @@unique([exerciseId, breathingChainId])
 }
 
 model TimeBox {
-  id                  String              @id @default(cuid())
-  createdAt           DateTime            @default(now())
-  updatedAt           DateTime
-  interval            ExercisingInterval?
-  session             ExercisingSession   @relation(fields: [exercisingSessionId], references: [id])
+  id                  String            @id @default(cuid())
+  /// @TypeGraphQL.omit(input: true)
+  createdAt           DateTime          @default(now())
+  /// @TypeGraphQL.omit(input: true)
+  updatedAt           DateTime          @updatedAt
+  closedAt            DateTime
+  resting             Boolean           @default(false)
+  exercisingSession   ExercisingSession @relation(fields: [exercisingSessionId], references: [id])
   exercisingSessionId Int
-}
-
-model ExercisingInterval {
-  createdAt DateTime @default(now())
-  closedAt  DateTime
-  TimeBox   TimeBox  @relation(fields: [timeBoxId], references: [id])
-  timeBoxId String   @unique
-
-  @@unique([createdAt, closedAt])
 }

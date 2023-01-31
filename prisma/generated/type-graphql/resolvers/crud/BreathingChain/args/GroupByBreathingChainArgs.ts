@@ -20,7 +20,7 @@ export class GroupByBreathingChainArgs {
   @TypeGraphQL.Field(_type => [BreathingChainScalarFieldEnum], {
     nullable: false
   })
-  by!: Array<"id" | "createdAt" | "updatedAt">;
+  by!: Array<"id" | "description" | "createdAt" | "updatedAt">;
 
   @TypeGraphQL.Field(_type => BreathingChainScalarWhereWithAggregatesInput, {
     nullable: true

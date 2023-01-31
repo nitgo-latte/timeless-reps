@@ -3,19 +3,24 @@ import * as GraphQLScalars from "graphql-scalars";
 import { Prisma } from "@prisma/client";
 import { DecimalJSScalar } from "../../scalars";
 import { BreathingChainCreateNestedOneWithoutExercisingSessionsInput } from "../inputs/BreathingChainCreateNestedOneWithoutExercisingSessionsInput";
-import { TimeBoxCreateNestedManyWithoutSessionInput } from "../inputs/TimeBoxCreateNestedManyWithoutSessionInput";
+import { TimeBoxCreateNestedManyWithoutExercisingSessionInput } from "../inputs/TimeBoxCreateNestedManyWithoutExercisingSessionInput";
 
 @TypeGraphQL.InputType("ExercisingSessionCreateWithoutExerciseInput", {
   isAbstract: true
 })
 export class ExercisingSessionCreateWithoutExerciseInput {
-  @TypeGraphQL.Field(_type => TimeBoxCreateNestedManyWithoutSessionInput, {
+  @TypeGraphQL.Field(_type => String, {
     nullable: true
   })
-  TimeBox?: TimeBoxCreateNestedManyWithoutSessionInput | undefined;
+  message?: string | undefined;
+
+  @TypeGraphQL.Field(_type => TimeBoxCreateNestedManyWithoutExercisingSessionInput, {
+    nullable: true
+  })
+  TimeBox?: TimeBoxCreateNestedManyWithoutExercisingSessionInput | undefined;
 
   @TypeGraphQL.Field(_type => BreathingChainCreateNestedOneWithoutExercisingSessionsInput, {
-    nullable: false
+    nullable: true
   })
-  BreathingChain!: BreathingChainCreateNestedOneWithoutExercisingSessionsInput;
+  BreathingChain?: BreathingChainCreateNestedOneWithoutExercisingSessionsInput | undefined;
 }

@@ -13,15 +13,10 @@ export class BreathingChainCreateInput {
   })
   id?: string | undefined;
 
-  @TypeGraphQL.Field(_type => Date, {
+  @TypeGraphQL.Field(_type => String, {
     nullable: true
   })
-  createdAt?: Date | undefined;
-
-  @TypeGraphQL.Field(_type => Date, {
-    nullable: false
-  })
-  updatedAt!: Date;
+  description?: string | undefined;
 
   @TypeGraphQL.Field(_type => ExercisingSessionCreateNestedManyWithoutBreathingChainInput, {
     nullable: true

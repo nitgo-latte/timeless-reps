@@ -25,6 +25,16 @@ export class TimeBoxCountAggregate {
   @TypeGraphQL.Field(_type => TypeGraphQL.Int, {
     nullable: false
   })
+  closedAt!: number;
+
+  @TypeGraphQL.Field(_type => TypeGraphQL.Int, {
+    nullable: false
+  })
+  resting!: number;
+
+  @TypeGraphQL.Field(_type => TypeGraphQL.Int, {
+    nullable: false
+  })
   exercisingSessionId!: number;
 
   @TypeGraphQL.Field(_type => TypeGraphQL.Int, {

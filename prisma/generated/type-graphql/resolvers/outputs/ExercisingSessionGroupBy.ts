@@ -23,6 +23,11 @@ export class ExercisingSessionGroupBy {
   exerciseId!: number;
 
   @TypeGraphQL.Field(_type => String, {
+    nullable: true
+  })
+  message!: string | null;
+
+  @TypeGraphQL.Field(_type => String, {
     nullable: false
   })
   breathingChainId!: string;

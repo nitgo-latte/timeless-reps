@@ -26,6 +26,11 @@ export class ExercisingSessionOrderByWithRelationInput {
   })
   exerciseId?: "asc" | "desc" | undefined;
 
+  @TypeGraphQL.Field(_type => SortOrder, {
+    nullable: true
+  })
+  message?: "asc" | "desc" | undefined;
+
   @TypeGraphQL.Field(_type => TimeBoxOrderByRelationAggregateInput, {
     nullable: true
   })

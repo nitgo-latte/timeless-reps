@@ -13,14 +13,14 @@ export class TimeBoxCreateManyInput {
   id?: string | undefined;
 
   @TypeGraphQL.Field(_type => Date, {
-    nullable: true
-  })
-  createdAt?: Date | undefined;
-
-  @TypeGraphQL.Field(_type => Date, {
     nullable: false
   })
-  updatedAt!: Date;
+  closedAt!: Date;
+
+  @TypeGraphQL.Field(_type => Boolean, {
+    nullable: true
+  })
+  resting?: boolean | undefined;
 
   @TypeGraphQL.Field(_type => TypeGraphQL.Int, {
     nullable: false

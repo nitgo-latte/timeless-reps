@@ -30,15 +30,10 @@ export class BreathingChainWhereInput {
   })
   id?: StringFilter | undefined;
 
-  @TypeGraphQL.Field(_type => DateTimeFilter, {
+  @TypeGraphQL.Field(_type => StringFilter, {
     nullable: true
   })
-  createdAt?: DateTimeFilter | undefined;
-
-  @TypeGraphQL.Field(_type => DateTimeFilter, {
-    nullable: true
-  })
-  updatedAt?: DateTimeFilter | undefined;
+  description?: StringFilter | undefined;
 
   @TypeGraphQL.Field(_type => ExercisingSessionListRelationFilter, {
     nullable: true

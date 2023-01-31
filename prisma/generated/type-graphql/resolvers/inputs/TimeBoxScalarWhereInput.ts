@@ -2,6 +2,7 @@ import * as TypeGraphQL from "type-graphql";
 import * as GraphQLScalars from "graphql-scalars";
 import { Prisma } from "@prisma/client";
 import { DecimalJSScalar } from "../../scalars";
+import { BoolFilter } from "../inputs/BoolFilter";
 import { DateTimeFilter } from "../inputs/DateTimeFilter";
 import { IntFilter } from "../inputs/IntFilter";
 import { StringFilter } from "../inputs/StringFilter";
@@ -33,12 +34,12 @@ export class TimeBoxScalarWhereInput {
   @TypeGraphQL.Field(_type => DateTimeFilter, {
     nullable: true
   })
-  createdAt?: DateTimeFilter | undefined;
+  closedAt?: DateTimeFilter | undefined;
 
-  @TypeGraphQL.Field(_type => DateTimeFilter, {
+  @TypeGraphQL.Field(_type => BoolFilter, {
     nullable: true
   })
-  updatedAt?: DateTimeFilter | undefined;
+  resting?: BoolFilter | undefined;
 
   @TypeGraphQL.Field(_type => IntFilter, {
     nullable: true
