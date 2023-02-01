@@ -2,7 +2,6 @@ import * as TypeGraphQL from "type-graphql";
 import * as GraphQLScalars from "graphql-scalars";
 import { Prisma } from "@prisma/client";
 import { DecimalJSScalar } from "../scalars";
-import { BreathingChain } from "../models/BreathingChain";
 import { Exercise } from "../models/Exercise";
 import { TimeBox } from "../models/TimeBox";
 import { ExercisingSessionCount } from "../resolvers/outputs/ExercisingSessionCount";
@@ -11,17 +10,17 @@ import { ExercisingSessionCount } from "../resolvers/outputs/ExercisingSessionCo
   isAbstract: true
 })
 export class ExercisingSession {
-  @TypeGraphQL.Field(_type => TypeGraphQL.Int, {
+  @TypeGraphQL.Field(_type => String, {
     nullable: false
   })
-  id!: number;
+  id!: string;
 
   exercise?: Exercise | null;
 
-  @TypeGraphQL.Field(_type => TypeGraphQL.Int, {
+  @TypeGraphQL.Field(_type => String, {
     nullable: false
   })
-  exerciseId!: number;
+  exerciseId!: string;
 
   @TypeGraphQL.Field(_type => String, {
     nullable: true
@@ -29,13 +28,6 @@ export class ExercisingSession {
   message?: string | null;
 
   TimeBox?: TimeBox[];
-
-  BreathingChain?: BreathingChain | null;
-
-  @TypeGraphQL.Field(_type => String, {
-    nullable: false
-  })
-  breathingChainId!: string;
 
   @TypeGraphQL.Field(_type => ExercisingSessionCount, {
     nullable: true

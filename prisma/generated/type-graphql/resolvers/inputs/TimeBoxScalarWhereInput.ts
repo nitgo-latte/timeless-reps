@@ -4,7 +4,6 @@ import { Prisma } from "@prisma/client";
 import { DecimalJSScalar } from "../../scalars";
 import { BoolFilter } from "../inputs/BoolFilter";
 import { DateTimeFilter } from "../inputs/DateTimeFilter";
-import { IntFilter } from "../inputs/IntFilter";
 import { StringFilter } from "../inputs/StringFilter";
 
 @TypeGraphQL.InputType("TimeBoxScalarWhereInput", {
@@ -34,6 +33,11 @@ export class TimeBoxScalarWhereInput {
   @TypeGraphQL.Field(_type => DateTimeFilter, {
     nullable: true
   })
+  createdAt?: DateTimeFilter | undefined;
+
+  @TypeGraphQL.Field(_type => DateTimeFilter, {
+    nullable: true
+  })
   closedAt?: DateTimeFilter | undefined;
 
   @TypeGraphQL.Field(_type => BoolFilter, {
@@ -41,8 +45,8 @@ export class TimeBoxScalarWhereInput {
   })
   resting?: BoolFilter | undefined;
 
-  @TypeGraphQL.Field(_type => IntFilter, {
+  @TypeGraphQL.Field(_type => StringFilter, {
     nullable: true
   })
-  exercisingSessionId?: IntFilter | undefined;
+  exercisingSessionId?: StringFilter | undefined;
 }

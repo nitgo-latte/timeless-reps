@@ -35,8 +35,8 @@ export class TimeBox {
 
   exercisingSession?: ExercisingSession;
 
-  @TypeGraphQL.Field(_type => TypeGraphQL.Int, {
+  @TypeGraphQL.Field(_type => String, {
     nullable: false
   })
-  exercisingSessionId!: number;
+  exercisingSessionId!: string;
 }

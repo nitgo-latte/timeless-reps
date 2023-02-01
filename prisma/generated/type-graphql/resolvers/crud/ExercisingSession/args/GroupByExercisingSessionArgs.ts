@@ -20,7 +20,7 @@ export class GroupByExercisingSessionArgs {
   @TypeGraphQL.Field(_type => [ExercisingSessionScalarFieldEnum], {
     nullable: false
   })
-  by!: Array<"id" | "exerciseId" | "message" | "breathingChainId">;
+  by!: Array<"id" | "exerciseId" | "message">;
 
   @TypeGraphQL.Field(_type => ExercisingSessionScalarWhereWithAggregatesInput, {
     nullable: true

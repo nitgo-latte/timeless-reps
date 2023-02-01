@@ -8,10 +8,10 @@ import { Difficulty } from "../../enums/Difficulty";
   isAbstract: true
 })
 export class ExerciseCreateManyInput {
-  @TypeGraphQL.Field(_type => TypeGraphQL.Int, {
+  @TypeGraphQL.Field(_type => String, {
     nullable: true
   })
-  id?: number | undefined;
+  id?: string | undefined;
 
   @TypeGraphQL.Field(_type => String, {
     nullable: false
@@ -19,7 +19,7 @@ export class ExerciseCreateManyInput {
   name!: string;
 
   @TypeGraphQL.Field(_type => Difficulty, {
-    nullable: false
+    nullable: true
   })
-  difficulty!: "EASY" | "MEDIUM" | "HARD";
+  difficulty?: "EASY" | "MEDIUM" | "HARD" | undefined;
 }

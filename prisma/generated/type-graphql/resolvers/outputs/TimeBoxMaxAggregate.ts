@@ -32,8 +32,8 @@ export class TimeBoxMaxAggregate {
   })
   resting!: boolean | null;
 
-  @TypeGraphQL.Field(_type => TypeGraphQL.Int, {
+  @TypeGraphQL.Field(_type => String, {
     nullable: true
   })
-  exercisingSessionId!: number | null;
+  exercisingSessionId!: string | null;
 }

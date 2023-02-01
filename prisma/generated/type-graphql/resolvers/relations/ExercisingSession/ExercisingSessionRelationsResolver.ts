@@ -1,5 +1,4 @@
 import * as TypeGraphQL from "type-graphql";
-import { BreathingChain } from "../../../models/BreathingChain";
 import { Exercise } from "../../../models/Exercise";
 import { ExercisingSession } from "../../../models/ExercisingSession";
 import { TimeBox } from "../../../models/TimeBox";
@@ -28,16 +27,5 @@ export class ExercisingSessionRelationsResolver {
         id: exercisingSession.id,
       },
     }).TimeBox(args);
-  }
-
-  @TypeGraphQL.FieldResolver(_type => BreathingChain, {
-    nullable: true
-  })
-  async BreathingChain(@TypeGraphQL.Root() exercisingSession: ExercisingSession, @TypeGraphQL.Ctx() ctx: any): Promise<BreathingChain | null> {
-    return getPrismaFromContext(ctx).exercisingSession.findUnique({
-      where: {
-        id: exercisingSession.id,
-      },
-    }).BreathingChain({});
   }
 }

@@ -2,7 +2,6 @@ import * as TypeGraphQL from "type-graphql";
 import * as GraphQLScalars from "graphql-scalars";
 import { Prisma } from "@prisma/client";
 import { DecimalJSScalar } from "../../scalars";
-import { BreathingChainCreateNestedOneWithoutExercisingSessionsInput } from "../inputs/BreathingChainCreateNestedOneWithoutExercisingSessionsInput";
 import { ExerciseCreateNestedOneWithoutExercisingSessionInput } from "../inputs/ExerciseCreateNestedOneWithoutExercisingSessionInput";
 import { TimeBoxCreateNestedManyWithoutExercisingSessionInput } from "../inputs/TimeBoxCreateNestedManyWithoutExercisingSessionInput";
 
@@ -10,6 +9,11 @@ import { TimeBoxCreateNestedManyWithoutExercisingSessionInput } from "../inputs/
   isAbstract: true
 })
 export class ExercisingSessionCreateInput {
+  @TypeGraphQL.Field(_type => String, {
+    nullable: true
+  })
+  id?: string | undefined;
+
   @TypeGraphQL.Field(_type => ExerciseCreateNestedOneWithoutExercisingSessionInput, {
     nullable: true
   })
@@ -24,9 +28,4 @@ export class ExercisingSessionCreateInput {
     nullable: true
   })
   TimeBox?: TimeBoxCreateNestedManyWithoutExercisingSessionInput | undefined;
-
-  @TypeGraphQL.Field(_type => BreathingChainCreateNestedOneWithoutExercisingSessionsInput, {
-    nullable: true
-  })
-  BreathingChain?: BreathingChainCreateNestedOneWithoutExercisingSessionsInput | undefined;
 }

@@ -2,21 +2,19 @@ import * as TypeGraphQL from "type-graphql";
 import * as GraphQLScalars from "graphql-scalars";
 import { Prisma } from "@prisma/client";
 import { DecimalJSScalar } from "../../scalars";
-import { ExerciseAvgAggregate } from "../outputs/ExerciseAvgAggregate";
 import { ExerciseCountAggregate } from "../outputs/ExerciseCountAggregate";
 import { ExerciseMaxAggregate } from "../outputs/ExerciseMaxAggregate";
 import { ExerciseMinAggregate } from "../outputs/ExerciseMinAggregate";
-import { ExerciseSumAggregate } from "../outputs/ExerciseSumAggregate";
 import { Difficulty } from "../../enums/Difficulty";
 
 @TypeGraphQL.ObjectType("ExerciseGroupBy", {
   isAbstract: true
 })
 export class ExerciseGroupBy {
-  @TypeGraphQL.Field(_type => TypeGraphQL.Int, {
+  @TypeGraphQL.Field(_type => String, {
     nullable: false
   })
-  id!: number;
+  id!: string;
 
   @TypeGraphQL.Field(_type => String, {
     nullable: false
@@ -32,16 +30,6 @@ export class ExerciseGroupBy {
     nullable: true
   })
   _count!: ExerciseCountAggregate | null;
-
-  @TypeGraphQL.Field(_type => ExerciseAvgAggregate, {
-    nullable: true
-  })
-  _avg!: ExerciseAvgAggregate | null;
-
-  @TypeGraphQL.Field(_type => ExerciseSumAggregate, {
-    nullable: true
-  })
-  _sum!: ExerciseSumAggregate | null;
 
   @TypeGraphQL.Field(_type => ExerciseMinAggregate, {
     nullable: true

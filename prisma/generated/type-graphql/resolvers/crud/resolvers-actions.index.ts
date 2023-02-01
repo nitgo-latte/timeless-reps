@@ -1,17 +1,3 @@
-export { AggregateBreathingChainResolver } from "./BreathingChain/AggregateBreathingChainResolver";
-export { CreateManyBreathingChainResolver } from "./BreathingChain/CreateManyBreathingChainResolver";
-export { CreateOneBreathingChainResolver } from "./BreathingChain/CreateOneBreathingChainResolver";
-export { DeleteManyBreathingChainResolver } from "./BreathingChain/DeleteManyBreathingChainResolver";
-export { DeleteOneBreathingChainResolver } from "./BreathingChain/DeleteOneBreathingChainResolver";
-export { FindFirstBreathingChainResolver } from "./BreathingChain/FindFirstBreathingChainResolver";
-export { FindFirstBreathingChainOrThrowResolver } from "./BreathingChain/FindFirstBreathingChainOrThrowResolver";
-export { FindManyBreathingChainResolver } from "./BreathingChain/FindManyBreathingChainResolver";
-export { FindUniqueBreathingChainResolver } from "./BreathingChain/FindUniqueBreathingChainResolver";
-export { FindUniqueBreathingChainOrThrowResolver } from "./BreathingChain/FindUniqueBreathingChainOrThrowResolver";
-export { GroupByBreathingChainResolver } from "./BreathingChain/GroupByBreathingChainResolver";
-export { UpdateManyBreathingChainResolver } from "./BreathingChain/UpdateManyBreathingChainResolver";
-export { UpdateOneBreathingChainResolver } from "./BreathingChain/UpdateOneBreathingChainResolver";
-export { UpsertOneBreathingChainResolver } from "./BreathingChain/UpsertOneBreathingChainResolver";
 export { AggregateExerciseResolver } from "./Exercise/AggregateExerciseResolver";
 export { CreateManyExerciseResolver } from "./Exercise/CreateManyExerciseResolver";
 export { CreateOneExerciseResolver } from "./Exercise/CreateOneExerciseResolver";

@@ -14,6 +14,11 @@ export class TimeBoxCreateInput {
   id?: string | undefined;
 
   @TypeGraphQL.Field(_type => Date, {
+    nullable: true
+  })
+  createdAt?: Date | undefined;
+
+  @TypeGraphQL.Field(_type => Date, {
     nullable: false
   })
   closedAt!: Date;

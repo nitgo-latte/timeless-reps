@@ -2,11 +2,9 @@ import * as TypeGraphQL from "type-graphql";
 import * as GraphQLScalars from "graphql-scalars";
 import { Prisma } from "@prisma/client";
 import { DecimalJSScalar } from "../../scalars";
-import { ExerciseAvgOrderByAggregateInput } from "../inputs/ExerciseAvgOrderByAggregateInput";
 import { ExerciseCountOrderByAggregateInput } from "../inputs/ExerciseCountOrderByAggregateInput";
 import { ExerciseMaxOrderByAggregateInput } from "../inputs/ExerciseMaxOrderByAggregateInput";
 import { ExerciseMinOrderByAggregateInput } from "../inputs/ExerciseMinOrderByAggregateInput";
-import { ExerciseSumOrderByAggregateInput } from "../inputs/ExerciseSumOrderByAggregateInput";
 import { SortOrder } from "../../enums/SortOrder";
 
 @TypeGraphQL.InputType("ExerciseOrderByWithAggregationInput", {
@@ -33,11 +31,6 @@ export class ExerciseOrderByWithAggregationInput {
   })
   _count?: ExerciseCountOrderByAggregateInput | undefined;
 
-  @TypeGraphQL.Field(_type => ExerciseAvgOrderByAggregateInput, {
-    nullable: true
-  })
-  _avg?: ExerciseAvgOrderByAggregateInput | undefined;
-
   @TypeGraphQL.Field(_type => ExerciseMaxOrderByAggregateInput, {
     nullable: true
   })
@@ -47,9 +40,4 @@ export class ExerciseOrderByWithAggregationInput {
     nullable: true
   })
   _min?: ExerciseMinOrderByAggregateInput | undefined;
-
-  @TypeGraphQL.Field(_type => ExerciseSumOrderByAggregateInput, {
-    nullable: true
-  })
-  _sum?: ExerciseSumOrderByAggregateInput | undefined;
 }

@@ -11,10 +11,10 @@ import { ExerciseCount } from "../resolvers/outputs/ExerciseCount";
   isAbstract: true
 })
 export class Exercise {
-  @TypeGraphQL.Field(_type => TypeGraphQL.Int, {
+  @TypeGraphQL.Field(_type => String, {
     nullable: false
   })
-  id!: number;
+  id!: string;
 
   @TypeGraphQL.Field(_type => String, {
     nullable: false

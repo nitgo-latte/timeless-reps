@@ -7,18 +7,13 @@ import { DecimalJSScalar } from "../../scalars";
   isAbstract: true
 })
 export class ExercisingSessionCreateManyExerciseInput {
-  @TypeGraphQL.Field(_type => TypeGraphQL.Int, {
+  @TypeGraphQL.Field(_type => String, {
     nullable: true
   })
-  id?: number | undefined;
+  id?: string | undefined;
 
   @TypeGraphQL.Field(_type => String, {
     nullable: true
   })
   message?: string | undefined;
-
-  @TypeGraphQL.Field(_type => String, {
-    nullable: false
-  })
-  breathingChainId!: string;
 }

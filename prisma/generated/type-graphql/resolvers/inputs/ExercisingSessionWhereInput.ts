@@ -2,9 +2,7 @@ import * as TypeGraphQL from "type-graphql";
 import * as GraphQLScalars from "graphql-scalars";
 import { Prisma } from "@prisma/client";
 import { DecimalJSScalar } from "../../scalars";
-import { BreathingChainRelationFilter } from "../inputs/BreathingChainRelationFilter";
 import { ExerciseRelationFilter } from "../inputs/ExerciseRelationFilter";
-import { IntFilter } from "../inputs/IntFilter";
 import { StringFilter } from "../inputs/StringFilter";
 import { StringNullableFilter } from "../inputs/StringNullableFilter";
 import { TimeBoxListRelationFilter } from "../inputs/TimeBoxListRelationFilter";
@@ -28,20 +26,20 @@ export class ExercisingSessionWhereInput {
   })
   NOT?: ExercisingSessionWhereInput[] | undefined;
 
-  @TypeGraphQL.Field(_type => IntFilter, {
+  @TypeGraphQL.Field(_type => StringFilter, {
     nullable: true
   })
-  id?: IntFilter | undefined;
+  id?: StringFilter | undefined;
 
   @TypeGraphQL.Field(_type => ExerciseRelationFilter, {
     nullable: true
   })
   exercise?: ExerciseRelationFilter | undefined;
 
-  @TypeGraphQL.Field(_type => IntFilter, {
+  @TypeGraphQL.Field(_type => StringFilter, {
     nullable: true
   })
-  exerciseId?: IntFilter | undefined;
+  exerciseId?: StringFilter | undefined;
 
   @TypeGraphQL.Field(_type => StringNullableFilter, {
     nullable: true
@@ -52,14 +50,4 @@ export class ExercisingSessionWhereInput {
     nullable: true
   })
   TimeBox?: TimeBoxListRelationFilter | undefined;
-
-  @TypeGraphQL.Field(_type => BreathingChainRelationFilter, {
-    nullable: true
-  })
-  BreathingChain?: BreathingChainRelationFilter | undefined;
-
-  @TypeGraphQL.Field(_type => StringFilter, {
-    nullable: true
-  })
-  breathingChainId?: StringFilter | undefined;
 }
