@@ -20,7 +20,7 @@ export class GroupByTimeBoxArgs {
   @TypeGraphQL.Field(_type => [TimeBoxScalarFieldEnum], {
     nullable: false
   })
-  by!: Array<"id" | "createdAt" | "updatedAt" | "closedAt" | "resting" | "exercisingSessionId">;
+  by!: Array<"id" | "createdAt" | "updatedAt" | "start" | "end" | "resting" | "exercisingSessionId">;
 
   @TypeGraphQL.Field(_type => TimeBoxScalarWhereWithAggregatesInput, {
     nullable: true

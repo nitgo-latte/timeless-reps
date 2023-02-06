@@ -387,10 +387,12 @@ input ExerciseWhereUniqueInput {
 type ExercisingSession {
   TimeBox(cursor: TimeBoxWhereUniqueInput, distinct: [TimeBoxScalarFieldEnum!], orderBy: [TimeBoxOrderByWithRelationInput!], skip: Int, take: Int, where: TimeBoxWhereInput): [TimeBox!]!
   _count: ExercisingSessionCount
+  createdAt: DateTime!
   exercise: Exercise
-  exerciseId: String!
+  exerciseId: String
   id: String!
   message: String
+  updatedAt: DateTime!
 }
 
 type ExercisingSessionCount {
@@ -399,15 +401,18 @@ type ExercisingSessionCount {
 
 type ExercisingSessionCountAggregate {
   _all: Int!
+  createdAt: Int!
   exerciseId: Int!
   id: Int!
   message: Int!
+  updatedAt: Int!
 }
 
 input ExercisingSessionCountOrderByAggregateInput {
   exerciseId: SortOrder
   id: SortOrder
   message: SortOrder
+  updatedAt: SortOrder
 }
 
 input ExercisingSessionCreateInput {
@@ -415,11 +420,13 @@ input ExercisingSessionCreateInput {
   exercise: ExerciseCreateNestedOneWithoutExercisingSessionInput
   id: String
   message: String
+  updatedAt: DateTime
 }
 
 input ExercisingSessionCreateManyExerciseInput {
   id: String
   message: String
+  updatedAt: DateTime
 }
 
 input ExercisingSessionCreateManyExerciseInputEnvelope {
@@ -428,9 +435,10 @@ input ExercisingSessionCreateManyExerciseInputEnvelope {
 }
 
 input ExercisingSessionCreateManyInput {
-  exerciseId: String!
+  exerciseId: String
   id: String
   message: String
+  updatedAt: DateTime
 }
 
 input ExercisingSessionCreateNestedManyWithoutExerciseInput {
@@ -460,21 +468,25 @@ input ExercisingSessionCreateWithoutExerciseInput {
   TimeBox: TimeBoxCreateNestedManyWithoutExercisingSessionInput
   id: String
   message: String
+  updatedAt: DateTime
 }
 
 input ExercisingSessionCreateWithoutTimeBoxInput {
   exercise: ExerciseCreateNestedOneWithoutExercisingSessionInput
   id: String
   message: String
+  updatedAt: DateTime
 }
 
 type ExercisingSessionGroupBy {
   _count: ExercisingSessionCountAggregate
   _max: ExercisingSessionMaxAggregate
   _min: ExercisingSessionMinAggregate
-  exerciseId: String!
+  createdAt: DateTime!
+  exerciseId: String
   id: String!
   message: String
+  updatedAt: DateTime!
 }
 
 input ExercisingSessionListRelationFilter {
@@ -484,27 +496,33 @@ input ExercisingSessionListRelationFilter {
 }
 
 type ExercisingSessionMaxAggregate {
+  createdAt: DateTime
   exerciseId: String
   id: String
   message: String
+  updatedAt: DateTime
 }
 
 input ExercisingSessionMaxOrderByAggregateInput {
   exerciseId: SortOrder
   id: SortOrder
   message: SortOrder
+  updatedAt: SortOrder
 }
 
 type ExercisingSessionMinAggregate {
+  createdAt: DateTime
   exerciseId: String
   id: String
   message: String
+  updatedAt: DateTime
 }
 
 input ExercisingSessionMinOrderByAggregateInput {
   exerciseId: SortOrder
   id: SortOrder
   message: SortOrder
+  updatedAt: SortOrder
 }
 
 input ExercisingSessionOrderByRelationAggregateInput {
@@ -518,6 +536,7 @@ input ExercisingSessionOrderByWithAggregationInput {
   exerciseId: SortOrder
   id: SortOrder
   message: SortOrder
+  updatedAt: SortOrder
 }
 
 input ExercisingSessionOrderByWithRelationInput {
@@ -526,6 +545,7 @@ input ExercisingSessionOrderByWithRelationInput {
   exerciseId: SortOrder
   id: SortOrder
   message: SortOrder
+  updatedAt: SortOrder
 }
 
 input ExercisingSessionRelationFilter {
@@ -534,27 +554,31 @@ input ExercisingSessionRelationFilter {
 }
 
 enum ExercisingSessionScalarFieldEnum {
+  createdAt
   exerciseId
   id
   message
+  updatedAt
 }
 
 input ExercisingSessionScalarWhereInput {
   AND: [ExercisingSessionScalarWhereInput!]
   NOT: [ExercisingSessionScalarWhereInput!]
   OR: [ExercisingSessionScalarWhereInput!]
-  exerciseId: StringFilter
+  exerciseId: StringNullableFilter
   id: StringFilter
   message: StringNullableFilter
+  updatedAt: DateTimeFilter
 }
 
 input ExercisingSessionScalarWhereWithAggregatesInput {
   AND: [ExercisingSessionScalarWhereWithAggregatesInput!]
   NOT: [ExercisingSessionScalarWhereWithAggregatesInput!]
   OR: [ExercisingSessionScalarWhereWithAggregatesInput!]
-  exerciseId: StringWithAggregatesFilter
+  exerciseId: StringNullableWithAggregatesFilter
   id: StringWithAggregatesFilter
   message: StringNullableWithAggregatesFilter
+  updatedAt: DateTimeWithAggregatesFilter
 }
 
 input ExercisingSessionUpdateInput {
@@ -562,11 +586,13 @@ input ExercisingSessionUpdateInput {
   exercise: ExerciseUpdateOneWithoutExercisingSessionNestedInput
   id: StringFieldUpdateOperationsInput
   message: NullableStringFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
 }
 
 input ExercisingSessionUpdateManyMutationInput {
   id: StringFieldUpdateOperationsInput
   message: NullableStringFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
 }
 
 input ExercisingSessionUpdateManyWithWhereWithoutExerciseInput {
@@ -588,10 +614,12 @@ input ExercisingSessionUpdateManyWithoutExerciseNestedInput {
   upsert: [ExercisingSessionUpsertWithWhereUniqueWithoutExerciseInput!]
 }
 
-input ExercisingSessionUpdateOneRequiredWithoutTimeBoxNestedInput {
+input ExercisingSessionUpdateOneWithoutTimeBoxNestedInput {
   connect: ExercisingSessionWhereUniqueInput
   connectOrCreate: ExercisingSessionCreateOrConnectWithoutTimeBoxInput
   create: ExercisingSessionCreateWithoutTimeBoxInput
+  delete: Boolean
+  disconnect: Boolean
   update: ExercisingSessionUpdateWithoutTimeBoxInput
   upsert: ExercisingSessionUpsertWithoutTimeBoxInput
 }
@@ -605,12 +633,14 @@ input ExercisingSessionUpdateWithoutExerciseInput {
   TimeBox: TimeBoxUpdateManyWithoutExercisingSessionNestedInput
   id: StringFieldUpdateOperationsInput
   message: NullableStringFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
 }
 
 input ExercisingSessionUpdateWithoutTimeBoxInput {
   exercise: ExerciseUpdateOneWithoutExercisingSessionNestedInput
   id: StringFieldUpdateOperationsInput
   message: NullableStringFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
 }
 
 input ExercisingSessionUpsertWithWhereUniqueWithoutExerciseInput {
@@ -630,13 +660,13 @@ input ExercisingSessionWhereInput {
   OR: [ExercisingSessionWhereInput!]
   TimeBox: TimeBoxListRelationFilter
   exercise: ExerciseRelationFilter
-  exerciseId: StringFilter
+  exerciseId: StringNullableFilter
   id: StringFilter
   message: StringNullableFilter
+  updatedAt: DateTimeFilter
 }
 
 input ExercisingSessionWhereUniqueInput {
-  exerciseId: String
   id: String
 }
 
@@ -1135,46 +1165,51 @@ input StringWithAggregatesFilter {
 }
 
 type TimeBox {
-  closedAt: DateTime!
   createdAt: DateTime!
-  exercisingSession: ExercisingSession!
-  exercisingSessionId: String!
+  end: DateTime!
+  exercisingSession: ExercisingSession
+  exercisingSessionId: String
   id: String!
   resting: Boolean!
+  start: DateTime!
   updatedAt: DateTime!
 }
 
 type TimeBoxCountAggregate {
   _all: Int!
-  closedAt: Int!
   createdAt: Int!
+  end: Int!
   exercisingSessionId: Int!
   id: Int!
   resting: Int!
+  start: Int!
   updatedAt: Int!
 }
 
 input TimeBoxCountOrderByAggregateInput {
-  closedAt: SortOrder
-  createdAt: SortOrder
+  end: SortOrder
   exercisingSessionId: SortOrder
   id: SortOrder
   resting: SortOrder
+  start: SortOrder
+  updatedAt: SortOrder
 }
 
 input TimeBoxCreateInput {
-  closedAt: DateTime!
-  createdAt: DateTime
-  exercisingSession: ExercisingSessionCreateNestedOneWithoutTimeBoxInput!
+  end: DateTime!
+  exercisingSession: ExercisingSessionCreateNestedOneWithoutTimeBoxInput
   id: String
   resting: Boolean
+  start: DateTime!
+  updatedAt: DateTime
 }
 
 input TimeBoxCreateManyExercisingSessionInput {
-  closedAt: DateTime!
-  createdAt: DateTime
+  end: DateTime!
   id: String
   resting: Boolean
+  start: DateTime!
+  updatedAt: DateTime
 }
 
 input TimeBoxCreateManyExercisingSessionInputEnvelope {
@@ -1183,11 +1218,12 @@ input TimeBoxCreateManyExercisingSessionInputEnvelope {
 }
 
 input TimeBoxCreateManyInput {
-  closedAt: DateTime!
-  createdAt: DateTime
-  exercisingSessionId: String!
+  end: DateTime!
+  exercisingSessionId: String
   id: String
   resting: Boolean
+  start: DateTime!
+  updatedAt: DateTime
 }
 
 input TimeBoxCreateNestedManyWithoutExercisingSessionInput {
@@ -1203,21 +1239,23 @@ input TimeBoxCreateOrConnectWithoutExercisingSessionInput {
 }
 
 input TimeBoxCreateWithoutExercisingSessionInput {
-  closedAt: DateTime!
-  createdAt: DateTime
+  end: DateTime!
   id: String
   resting: Boolean
+  start: DateTime!
+  updatedAt: DateTime
 }
 
 type TimeBoxGroupBy {
   _count: TimeBoxCountAggregate
   _max: TimeBoxMaxAggregate
   _min: TimeBoxMinAggregate
-  closedAt: DateTime!
   createdAt: DateTime!
-  exercisingSessionId: String!
+  end: DateTime!
+  exercisingSessionId: String
   id: String!
   resting: Boolean!
+  start: DateTime!
   updatedAt: DateTime!
 }
 
@@ -1228,37 +1266,41 @@ input TimeBoxListRelationFilter {
 }
 
 type TimeBoxMaxAggregate {
-  closedAt: DateTime
   createdAt: DateTime
+  end: DateTime
   exercisingSessionId: String
   id: String
   resting: Boolean
+  start: DateTime
   updatedAt: DateTime
 }
 
 input TimeBoxMaxOrderByAggregateInput {
-  closedAt: SortOrder
-  createdAt: SortOrder
+  end: SortOrder
   exercisingSessionId: SortOrder
   id: SortOrder
   resting: SortOrder
+  start: SortOrder
+  updatedAt: SortOrder
 }
 
 type TimeBoxMinAggregate {
-  closedAt: DateTime
   createdAt: DateTime
+  end: DateTime
   exercisingSessionId: String
   id: String
   resting: Boolean
+  start: DateTime
   updatedAt: DateTime
 }
 
 input TimeBoxMinOrderByAggregateInput {
-  closedAt: SortOrder
-  createdAt: SortOrder
+  end: SortOrder
   exercisingSessionId: SortOrder
   id: SortOrder
   resting: SortOrder
+  start: SortOrder
+  updatedAt: SortOrder
 }
 
 input TimeBoxOrderByRelationAggregateInput {
@@ -1269,28 +1311,31 @@ input TimeBoxOrderByWithAggregationInput {
   _count: TimeBoxCountOrderByAggregateInput
   _max: TimeBoxMaxOrderByAggregateInput
   _min: TimeBoxMinOrderByAggregateInput
-  closedAt: SortOrder
-  createdAt: SortOrder
+  end: SortOrder
   exercisingSessionId: SortOrder
   id: SortOrder
   resting: SortOrder
+  start: SortOrder
+  updatedAt: SortOrder
 }
 
 input TimeBoxOrderByWithRelationInput {
-  closedAt: SortOrder
-  createdAt: SortOrder
+  end: SortOrder
   exercisingSession: ExercisingSessionOrderByWithRelationInput
   exercisingSessionId: SortOrder
   id: SortOrder
   resting: SortOrder
+  start: SortOrder
+  updatedAt: SortOrder
 }
 
 enum TimeBoxScalarFieldEnum {
-  closedAt
   createdAt
+  end
   exercisingSessionId
   id
   resting
+  start
   updatedAt
 }
 
@@ -1298,37 +1343,41 @@ input TimeBoxScalarWhereInput {
   AND: [TimeBoxScalarWhereInput!]
   NOT: [TimeBoxScalarWhereInput!]
   OR: [TimeBoxScalarWhereInput!]
-  closedAt: DateTimeFilter
-  createdAt: DateTimeFilter
-  exercisingSessionId: StringFilter
+  end: DateTimeFilter
+  exercisingSessionId: StringNullableFilter
   id: StringFilter
   resting: BoolFilter
+  start: DateTimeFilter
+  updatedAt: DateTimeFilter
 }
 
 input TimeBoxScalarWhereWithAggregatesInput {
   AND: [TimeBoxScalarWhereWithAggregatesInput!]
   NOT: [TimeBoxScalarWhereWithAggregatesInput!]
   OR: [TimeBoxScalarWhereWithAggregatesInput!]
-  closedAt: DateTimeWithAggregatesFilter
-  createdAt: DateTimeWithAggregatesFilter
-  exercisingSessionId: StringWithAggregatesFilter
+  end: DateTimeWithAggregatesFilter
+  exercisingSessionId: StringNullableWithAggregatesFilter
   id: StringWithAggregatesFilter
   resting: BoolWithAggregatesFilter
+  start: DateTimeWithAggregatesFilter
+  updatedAt: DateTimeWithAggregatesFilter
 }
 
 input TimeBoxUpdateInput {
-  closedAt: DateTimeFieldUpdateOperationsInput
-  createdAt: DateTimeFieldUpdateOperationsInput
-  exercisingSession: ExercisingSessionUpdateOneRequiredWithoutTimeBoxNestedInput
+  end: DateTimeFieldUpdateOperationsInput
+  exercisingSession: ExercisingSessionUpdateOneWithoutTimeBoxNestedInput
   id: StringFieldUpdateOperationsInput
   resting: BoolFieldUpdateOperationsInput
+  start: DateTimeFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
 }
 
 input TimeBoxUpdateManyMutationInput {
-  closedAt: DateTimeFieldUpdateOperationsInput
-  createdAt: DateTimeFieldUpdateOperationsInput
+  end: DateTimeFieldUpdateOperationsInput
   id: StringFieldUpdateOperationsInput
   resting: BoolFieldUpdateOperationsInput
+  start: DateTimeFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
 }
 
 input TimeBoxUpdateManyWithWhereWithoutExercisingSessionInput {
@@ -1356,10 +1405,11 @@ input TimeBoxUpdateWithWhereUniqueWithoutExercisingSessionInput {
 }
 
 input TimeBoxUpdateWithoutExercisingSessionInput {
-  closedAt: DateTimeFieldUpdateOperationsInput
-  createdAt: DateTimeFieldUpdateOperationsInput
+  end: DateTimeFieldUpdateOperationsInput
   id: StringFieldUpdateOperationsInput
   resting: BoolFieldUpdateOperationsInput
+  start: DateTimeFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
 }
 
 input TimeBoxUpsertWithWhereUniqueWithoutExercisingSessionInput {
@@ -1372,12 +1422,13 @@ input TimeBoxWhereInput {
   AND: [TimeBoxWhereInput!]
   NOT: [TimeBoxWhereInput!]
   OR: [TimeBoxWhereInput!]
-  closedAt: DateTimeFilter
-  createdAt: DateTimeFilter
+  end: DateTimeFilter
   exercisingSession: ExercisingSessionRelationFilter
-  exercisingSessionId: StringFilter
+  exercisingSessionId: StringNullableFilter
   id: StringFilter
   resting: BoolFilter
+  start: DateTimeFilter
+  updatedAt: DateTimeFilter
 }
 
 input TimeBoxWhereUniqueInput {

@@ -26,17 +26,22 @@ export class TimeBox {
   @TypeGraphQL.Field(_type => Date, {
     nullable: false
   })
-  closedAt!: Date;
+  start!: Date;
+
+  @TypeGraphQL.Field(_type => Date, {
+    nullable: false
+  })
+  end!: Date;
 
   @TypeGraphQL.Field(_type => Boolean, {
     nullable: false
   })
   resting!: boolean;
 
-  exercisingSession?: ExercisingSession;
+  exercisingSession?: ExercisingSession | null;
 
   @TypeGraphQL.Field(_type => String, {
-    nullable: false
+    nullable: true
   })
-  exercisingSessionId!: string;
+  exercisingSessionId?: string | null;
 }

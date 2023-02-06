@@ -64,7 +64,7 @@ export { ExercisingSessionUpdateInput } from "./ExercisingSessionUpdateInput";
 export { ExercisingSessionUpdateManyMutationInput } from "./ExercisingSessionUpdateManyMutationInput";
 export { ExercisingSessionUpdateManyWithWhereWithoutExerciseInput } from "./ExercisingSessionUpdateManyWithWhereWithoutExerciseInput";
 export { ExercisingSessionUpdateManyWithoutExerciseNestedInput } from "./ExercisingSessionUpdateManyWithoutExerciseNestedInput";
-export { ExercisingSessionUpdateOneRequiredWithoutTimeBoxNestedInput } from "./ExercisingSessionUpdateOneRequiredWithoutTimeBoxNestedInput";
+export { ExercisingSessionUpdateOneWithoutTimeBoxNestedInput } from "./ExercisingSessionUpdateOneWithoutTimeBoxNestedInput";
 export { ExercisingSessionUpdateWithWhereUniqueWithoutExerciseInput } from "./ExercisingSessionUpdateWithWhereUniqueWithoutExerciseInput";
 export { ExercisingSessionUpdateWithoutExerciseInput } from "./ExercisingSessionUpdateWithoutExerciseInput";
 export { ExercisingSessionUpdateWithoutTimeBoxInput } from "./ExercisingSessionUpdateWithoutTimeBoxInput";

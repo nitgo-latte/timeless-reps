@@ -25,7 +25,12 @@ export class TimeBoxMaxAggregate {
   @TypeGraphQL.Field(_type => Date, {
     nullable: true
   })
-  closedAt!: Date | null;
+  start!: Date | null;
+
+  @TypeGraphQL.Field(_type => Date, {
+    nullable: true
+  })
+  end!: Date | null;
 
   @TypeGraphQL.Field(_type => Boolean, {
     nullable: true

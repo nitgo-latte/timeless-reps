@@ -28,7 +28,12 @@ export class TimeBoxGroupBy {
   @TypeGraphQL.Field(_type => Date, {
     nullable: false
   })
-  closedAt!: Date;
+  start!: Date;
+
+  @TypeGraphQL.Field(_type => Date, {
+    nullable: false
+  })
+  end!: Date;
 
   @TypeGraphQL.Field(_type => Boolean, {
     nullable: false
@@ -36,9 +41,9 @@ export class TimeBoxGroupBy {
   resting!: boolean;
 
   @TypeGraphQL.Field(_type => String, {
-    nullable: false
+    nullable: true
   })
-  exercisingSessionId!: string;
+  exercisingSessionId!: string | null;
 
   @TypeGraphQL.Field(_type => TimeBoxCountAggregate, {
     nullable: true

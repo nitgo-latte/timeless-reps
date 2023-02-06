@@ -12,10 +12,15 @@ export class ExercisingSessionCreateManyInput {
   })
   id?: string | undefined;
 
-  @TypeGraphQL.Field(_type => String, {
-    nullable: false
+  @TypeGraphQL.Field(_type => Date, {
+    nullable: true
   })
-  exerciseId!: string;
+  updatedAt?: Date | undefined;
+
+  @TypeGraphQL.Field(_type => String, {
+    nullable: true
+  })
+  exerciseId?: string | undefined;
 
   @TypeGraphQL.Field(_type => String, {
     nullable: true

@@ -15,10 +15,20 @@ export class ExercisingSessionGroupBy {
   })
   id!: string;
 
-  @TypeGraphQL.Field(_type => String, {
+  @TypeGraphQL.Field(_type => Date, {
     nullable: false
   })
-  exerciseId!: string;
+  createdAt!: Date;
+
+  @TypeGraphQL.Field(_type => Date, {
+    nullable: false
+  })
+  updatedAt!: Date;
+
+  @TypeGraphQL.Field(_type => String, {
+    nullable: true
+  })
+  exerciseId!: string | null;
 
   @TypeGraphQL.Field(_type => String, {
     nullable: true

@@ -8,10 +8,10 @@ import { ExercisingSessionUpdateWithoutTimeBoxInput } from "../inputs/Exercising
 import { ExercisingSessionUpsertWithoutTimeBoxInput } from "../inputs/ExercisingSessionUpsertWithoutTimeBoxInput";
 import { ExercisingSessionWhereUniqueInput } from "../inputs/ExercisingSessionWhereUniqueInput";
 
-@TypeGraphQL.InputType("ExercisingSessionUpdateOneRequiredWithoutTimeBoxNestedInput", {
+@TypeGraphQL.InputType("ExercisingSessionUpdateOneWithoutTimeBoxNestedInput", {
   isAbstract: true
 })
-export class ExercisingSessionUpdateOneRequiredWithoutTimeBoxNestedInput {
+export class ExercisingSessionUpdateOneWithoutTimeBoxNestedInput {
   @TypeGraphQL.Field(_type => ExercisingSessionCreateWithoutTimeBoxInput, {
     nullable: true
   })
@@ -26,6 +26,16 @@ export class ExercisingSessionUpdateOneRequiredWithoutTimeBoxNestedInput {
     nullable: true
   })
   upsert?: ExercisingSessionUpsertWithoutTimeBoxInput | undefined;
+
+  @TypeGraphQL.Field(_type => Boolean, {
+    nullable: true
+  })
+  disconnect?: boolean | undefined;
+
+  @TypeGraphQL.Field(_type => Boolean, {
+    nullable: true
+  })
+  delete?: boolean | undefined;
 
   @TypeGraphQL.Field(_type => ExercisingSessionWhereUniqueInput, {
     nullable: true

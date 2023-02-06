@@ -4,7 +4,8 @@ export enum TimeBoxScalarFieldEnum {
   id = "id",
   createdAt = "createdAt",
   updatedAt = "updatedAt",
-  closedAt = "closedAt",
+  start = "start",
+  end = "end",
   resting = "resting",
   exercisingSessionId = "exercisingSessionId"
 }

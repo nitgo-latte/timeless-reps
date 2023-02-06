@@ -11,9 +11,4 @@ export class ExercisingSessionWhereUniqueInput {
     nullable: true
   })
   id?: string | undefined;
-
-  @TypeGraphQL.Field(_type => String, {
-    nullable: true
-  })
-  exerciseId?: string | undefined;
 }

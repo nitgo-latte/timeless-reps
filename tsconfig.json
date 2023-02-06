@@ -33,6 +33,6 @@
   ],
   "include": [
     "./src/**/*.ts",
-    "prisma/seed.ts"
+    "prisma/seeding/index.ts"
   ]
 }

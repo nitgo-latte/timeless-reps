@@ -6,6 +6,7 @@ import { BoolFilter } from "../inputs/BoolFilter";
 import { DateTimeFilter } from "../inputs/DateTimeFilter";
 import { ExercisingSessionRelationFilter } from "../inputs/ExercisingSessionRelationFilter";
 import { StringFilter } from "../inputs/StringFilter";
+import { StringNullableFilter } from "../inputs/StringNullableFilter";
 
 @TypeGraphQL.InputType("TimeBoxWhereInput", {
   isAbstract: true
@@ -34,12 +35,17 @@ export class TimeBoxWhereInput {
   @TypeGraphQL.Field(_type => DateTimeFilter, {
     nullable: true
   })
-  createdAt?: DateTimeFilter | undefined;
+  updatedAt?: DateTimeFilter | undefined;
 
   @TypeGraphQL.Field(_type => DateTimeFilter, {
     nullable: true
   })
-  closedAt?: DateTimeFilter | undefined;
+  start?: DateTimeFilter | undefined;
+
+  @TypeGraphQL.Field(_type => DateTimeFilter, {
+    nullable: true
+  })
+  end?: DateTimeFilter | undefined;
 
   @TypeGraphQL.Field(_type => BoolFilter, {
     nullable: true
@@ -51,8 +57,8 @@ export class TimeBoxWhereInput {
   })
   exercisingSession?: ExercisingSessionRelationFilter | undefined;
 
-  @TypeGraphQL.Field(_type => StringFilter, {
+  @TypeGraphQL.Field(_type => StringNullableFilter, {
     nullable: true
   })
-  exercisingSessionId?: StringFilter | undefined;
+  exercisingSessionId?: StringNullableFilter | undefined;
 }

@@ -58,8 +58,11 @@ enum Difficulty {
 
 model ExercisingSession {
   id         String    @id @default(cuid())
+  /// @TypeGraphQL.omit(input: true)
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @updatedAt
   exercise   Exercise? @relation(fields: [exerciseId], references: [id])
-  exerciseId String    @unique
+  exerciseId String?
   message    String?
   TimeBox    TimeBox[]
   // BreathingChain   BreathingChain? @relation(fields: [breathingChainId], references: [id])
@@ -67,12 +70,13 @@ model ExercisingSession {
 }
 
 model TimeBox {
-  id                  String            @id @default(cuid())
-  createdAt           DateTime          @default(now())
+  id                  String             @id @default(cuid())
   /// @TypeGraphQL.omit(input: true)
-  updatedAt           DateTime          @updatedAt
-  closedAt            DateTime
-  resting             Boolean           @default(false)
-  exercisingSession   ExercisingSession @relation(fields: [exercisingSessionId], references: [id])
-  exercisingSessionId String
+  createdAt           DateTime           @default(now())
+  updatedAt           DateTime           @updatedAt
+  start               DateTime
+  end                 DateTime
+  resting             Boolean            @default(false)
+  exercisingSession   ExercisingSession? @relation(fields: [exercisingSessionId], references: [id])
+  exercisingSessionId String?
 }
