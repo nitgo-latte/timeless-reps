@@ -13,9 +13,19 @@ export class TimeBoxCreateWithoutExercisingSessionInput {
   id?: string | undefined;
 
   @TypeGraphQL.Field(_type => Date, {
+    nullable: true
+  })
+  updatedAt?: Date | undefined;
+
+  @TypeGraphQL.Field(_type => Date, {
     nullable: false
   })
-  closedAt!: Date;
+  start!: Date;
+
+  @TypeGraphQL.Field(_type => Date, {
+    nullable: false
+  })
+  end!: Date;
 
   @TypeGraphQL.Field(_type => Boolean, {
     nullable: true

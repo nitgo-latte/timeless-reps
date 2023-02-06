@@ -14,9 +14,19 @@ export class TimeBoxCreateInput {
   id?: string | undefined;
 
   @TypeGraphQL.Field(_type => Date, {
+    nullable: true
+  })
+  updatedAt?: Date | undefined;
+
+  @TypeGraphQL.Field(_type => Date, {
     nullable: false
   })
-  closedAt!: Date;
+  start!: Date;
+
+  @TypeGraphQL.Field(_type => Date, {
+    nullable: false
+  })
+  end!: Date;
 
   @TypeGraphQL.Field(_type => Boolean, {
     nullable: true
@@ -24,7 +34,7 @@ export class TimeBoxCreateInput {
   resting?: boolean | undefined;
 
   @TypeGraphQL.Field(_type => ExercisingSessionCreateNestedOneWithoutTimeBoxInput, {
-    nullable: false
+    nullable: true
   })
-  exercisingSession!: ExercisingSessionCreateNestedOneWithoutTimeBoxInput;
+  exercisingSession?: ExercisingSessionCreateNestedOneWithoutTimeBoxInput | undefined;
 }

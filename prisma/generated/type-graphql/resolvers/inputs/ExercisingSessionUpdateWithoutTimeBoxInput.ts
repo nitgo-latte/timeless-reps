@@ -2,14 +2,25 @@ import * as TypeGraphQL from "type-graphql";
 import * as GraphQLScalars from "graphql-scalars";
 import { Prisma } from "@prisma/client";
 import { DecimalJSScalar } from "../../scalars";
-import { BreathingChainUpdateOneWithoutExercisingSessionsNestedInput } from "../inputs/BreathingChainUpdateOneWithoutExercisingSessionsNestedInput";
+import { DateTimeFieldUpdateOperationsInput } from "../inputs/DateTimeFieldUpdateOperationsInput";
 import { ExerciseUpdateOneWithoutExercisingSessionNestedInput } from "../inputs/ExerciseUpdateOneWithoutExercisingSessionNestedInput";
 import { NullableStringFieldUpdateOperationsInput } from "../inputs/NullableStringFieldUpdateOperationsInput";
+import { StringFieldUpdateOperationsInput } from "../inputs/StringFieldUpdateOperationsInput";
 
 @TypeGraphQL.InputType("ExercisingSessionUpdateWithoutTimeBoxInput", {
   isAbstract: true
 })
 export class ExercisingSessionUpdateWithoutTimeBoxInput {
+  @TypeGraphQL.Field(_type => StringFieldUpdateOperationsInput, {
+    nullable: true
+  })
+  id?: StringFieldUpdateOperationsInput | undefined;
+
+  @TypeGraphQL.Field(_type => DateTimeFieldUpdateOperationsInput, {
+    nullable: true
+  })
+  updatedAt?: DateTimeFieldUpdateOperationsInput | undefined;
+
   @TypeGraphQL.Field(_type => ExerciseUpdateOneWithoutExercisingSessionNestedInput, {
     nullable: true
   })
@@ -19,9 +30,4 @@ export class ExercisingSessionUpdateWithoutTimeBoxInput {
     nullable: true
   })
   message?: NullableStringFieldUpdateOperationsInput | undefined;
-
-  @TypeGraphQL.Field(_type => BreathingChainUpdateOneWithoutExercisingSessionsNestedInput, {
-    nullable: true
-  })
-  BreathingChain?: BreathingChainUpdateOneWithoutExercisingSessionsNestedInput | undefined;
 }

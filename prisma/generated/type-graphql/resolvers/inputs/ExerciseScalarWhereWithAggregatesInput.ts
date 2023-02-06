@@ -3,7 +3,6 @@ import * as GraphQLScalars from "graphql-scalars";
 import { Prisma } from "@prisma/client";
 import { DecimalJSScalar } from "../../scalars";
 import { EnumDifficultyWithAggregatesFilter } from "../inputs/EnumDifficultyWithAggregatesFilter";
-import { IntWithAggregatesFilter } from "../inputs/IntWithAggregatesFilter";
 import { StringWithAggregatesFilter } from "../inputs/StringWithAggregatesFilter";
 
 @TypeGraphQL.InputType("ExerciseScalarWhereWithAggregatesInput", {
@@ -25,10 +24,10 @@ export class ExerciseScalarWhereWithAggregatesInput {
   })
   NOT?: ExerciseScalarWhereWithAggregatesInput[] | undefined;
 
-  @TypeGraphQL.Field(_type => IntWithAggregatesFilter, {
+  @TypeGraphQL.Field(_type => StringWithAggregatesFilter, {
     nullable: true
   })
-  id?: IntWithAggregatesFilter | undefined;
+  id?: StringWithAggregatesFilter | undefined;
 
   @TypeGraphQL.Field(_type => StringWithAggregatesFilter, {
     nullable: true

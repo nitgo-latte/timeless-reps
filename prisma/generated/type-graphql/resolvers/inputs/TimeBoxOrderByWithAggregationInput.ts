@@ -2,11 +2,9 @@ import * as TypeGraphQL from "type-graphql";
 import * as GraphQLScalars from "graphql-scalars";
 import { Prisma } from "@prisma/client";
 import { DecimalJSScalar } from "../../scalars";
-import { TimeBoxAvgOrderByAggregateInput } from "../inputs/TimeBoxAvgOrderByAggregateInput";
 import { TimeBoxCountOrderByAggregateInput } from "../inputs/TimeBoxCountOrderByAggregateInput";
 import { TimeBoxMaxOrderByAggregateInput } from "../inputs/TimeBoxMaxOrderByAggregateInput";
 import { TimeBoxMinOrderByAggregateInput } from "../inputs/TimeBoxMinOrderByAggregateInput";
-import { TimeBoxSumOrderByAggregateInput } from "../inputs/TimeBoxSumOrderByAggregateInput";
 import { SortOrder } from "../../enums/SortOrder";
 
 @TypeGraphQL.InputType("TimeBoxOrderByWithAggregationInput", {
@@ -21,7 +19,17 @@ export class TimeBoxOrderByWithAggregationInput {
   @TypeGraphQL.Field(_type => SortOrder, {
     nullable: true
   })
-  closedAt?: "asc" | "desc" | undefined;
+  updatedAt?: "asc" | "desc" | undefined;
+
+  @TypeGraphQL.Field(_type => SortOrder, {
+    nullable: true
+  })
+  start?: "asc" | "desc" | undefined;
+
+  @TypeGraphQL.Field(_type => SortOrder, {
+    nullable: true
+  })
+  end?: "asc" | "desc" | undefined;
 
   @TypeGraphQL.Field(_type => SortOrder, {
     nullable: true
@@ -38,11 +46,6 @@ export class TimeBoxOrderByWithAggregationInput {
   })
   _count?: TimeBoxCountOrderByAggregateInput | undefined;
 
-  @TypeGraphQL.Field(_type => TimeBoxAvgOrderByAggregateInput, {
-    nullable: true
-  })
-  _avg?: TimeBoxAvgOrderByAggregateInput | undefined;
-
   @TypeGraphQL.Field(_type => TimeBoxMaxOrderByAggregateInput, {
     nullable: true
   })
@@ -52,9 +55,4 @@ export class TimeBoxOrderByWithAggregationInput {
     nullable: true
   })
   _min?: TimeBoxMinOrderByAggregateInput | undefined;
-
-  @TypeGraphQL.Field(_type => TimeBoxSumOrderByAggregateInput, {
-    nullable: true
-  })
-  _sum?: TimeBoxSumOrderByAggregateInput | undefined;
 }

@@ -16,17 +16,28 @@ datasource db {
 }
 
 model MuscleGroup {
-  id        Int        @id @default(autoincrement())
-  name      String     @unique
+  id        String          @id @default(cuid())
+  name      MuscleGroupEnum @unique
   exercises Exercise[]
 }
 
 model Exercise {
-  id                Int                 @id @default(autoincrement())
+  id                String              @id @default(cuid())
   name              String              @unique
   muscleGroups      MuscleGroup[]
-  difficulty        Difficulty
+  difficulty        Difficulty          @default(EASY)
   ExercisingSession ExercisingSession[]
+}
+
+enum MuscleGroupEnum {
+  CHEST
+  TRICEPS
+  BACK
+  SHOULDERS
+  CORE
+  ABS
+  LEGS
+  HIPS
 }
 
 enum Difficulty {
@@ -35,36 +46,37 @@ enum Difficulty {
   HARD
 }
 
-model BreathingChain {
-  id                 String              @id @default(cuid())
-  description        String              @default("practicing my prana")
-  /// @TypeGraphQL.omit(input: true)
-  createdAt          DateTime            @default(now())
-  /// @TypeGraphQL.omit(input: true)
-  updatedAt          DateTime            @updatedAt
-  exercisingSessions ExercisingSession[]
-}
+// model BreathingChain {
+//   id                 String              @id @default(cuid())
+//   description        String              @default("practicing my prana")
+//   /// @TypeGraphQL.omit(input: true)
+//   createdAt          DateTime            @default(now())
+//   /// @TypeGraphQL.omit(input: true)
+//   updatedAt          DateTime            @updatedAt
+//   exercisingSessions ExercisingSession[]
+// }
 
 model ExercisingSession {
-  id               Int             @id @default(autoincrement())
-  exercise         Exercise?       @relation(fields: [exerciseId], references: [id])
-  exerciseId       Int
-  message          String?
-  TimeBox          TimeBox[]
-  BreathingChain   BreathingChain? @relation(fields: [breathingChainId], references: [id])
-  breathingChainId String
-
-  @@unique([exerciseId, breathingChainId])
+  id         String    @id @default(cuid())
+  /// @TypeGraphQL.omit(input: true)
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @updatedAt
+  exercise   Exercise? @relation(fields: [exerciseId], references: [id])
+  exerciseId String?
+  message    String?
+  TimeBox    TimeBox[]
+  // BreathingChain   BreathingChain? @relation(fields: [breathingChainId], references: [id])
+  // breathingChainId String
 }
 
 model TimeBox {
-  id                  String            @id @default(cuid())
+  id                  String             @id @default(cuid())
   /// @TypeGraphQL.omit(input: true)
-  createdAt           DateTime          @default(now())
-  /// @TypeGraphQL.omit(input: true)
-  updatedAt           DateTime          @updatedAt
-  closedAt            DateTime
-  resting             Boolean           @default(false)
-  exercisingSession   ExercisingSession @relation(fields: [exercisingSessionId], references: [id])
-  exercisingSessionId Int
+  createdAt           DateTime           @default(now())
+  updatedAt           DateTime           @updatedAt
+  start               DateTime
+  end                 DateTime
+  resting             Boolean            @default(false)
+  exercisingSession   ExercisingSession? @relation(fields: [exercisingSessionId], references: [id])
+  exercisingSessionId String?
 }

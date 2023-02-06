@@ -7,23 +7,28 @@ import { DecimalJSScalar } from "../../scalars";
   isAbstract: true
 })
 export class ExercisingSessionMaxAggregate {
-  @TypeGraphQL.Field(_type => TypeGraphQL.Int, {
+  @TypeGraphQL.Field(_type => String, {
     nullable: true
   })
-  id!: number | null;
+  id!: string | null;
 
-  @TypeGraphQL.Field(_type => TypeGraphQL.Int, {
+  @TypeGraphQL.Field(_type => Date, {
     nullable: true
   })
-  exerciseId!: number | null;
+  createdAt!: Date | null;
+
+  @TypeGraphQL.Field(_type => Date, {
+    nullable: true
+  })
+  updatedAt!: Date | null;
+
+  @TypeGraphQL.Field(_type => String, {
+    nullable: true
+  })
+  exerciseId!: string | null;
 
   @TypeGraphQL.Field(_type => String, {
     nullable: true
   })
   message!: string | null;
-
-  @TypeGraphQL.Field(_type => String, {
-    nullable: true
-  })
-  breathingChainId!: string | null;
 }

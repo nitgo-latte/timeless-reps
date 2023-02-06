@@ -4,7 +4,6 @@ import { Prisma } from "@prisma/client";
 import { DecimalJSScalar } from "../../scalars";
 import { EnumDifficultyFilter } from "../inputs/EnumDifficultyFilter";
 import { ExercisingSessionListRelationFilter } from "../inputs/ExercisingSessionListRelationFilter";
-import { IntFilter } from "../inputs/IntFilter";
 import { MuscleGroupListRelationFilter } from "../inputs/MuscleGroupListRelationFilter";
 import { StringFilter } from "../inputs/StringFilter";
 
@@ -27,10 +26,10 @@ export class ExerciseWhereInput {
   })
   NOT?: ExerciseWhereInput[] | undefined;
 
-  @TypeGraphQL.Field(_type => IntFilter, {
+  @TypeGraphQL.Field(_type => StringFilter, {
     nullable: true
   })
-  id?: IntFilter | undefined;
+  id?: StringFilter | undefined;
 
   @TypeGraphQL.Field(_type => StringFilter, {
     nullable: true

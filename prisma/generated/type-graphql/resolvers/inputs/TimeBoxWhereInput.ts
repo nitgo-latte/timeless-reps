@@ -5,8 +5,8 @@ import { DecimalJSScalar } from "../../scalars";
 import { BoolFilter } from "../inputs/BoolFilter";
 import { DateTimeFilter } from "../inputs/DateTimeFilter";
 import { ExercisingSessionRelationFilter } from "../inputs/ExercisingSessionRelationFilter";
-import { IntFilter } from "../inputs/IntFilter";
 import { StringFilter } from "../inputs/StringFilter";
+import { StringNullableFilter } from "../inputs/StringNullableFilter";
 
 @TypeGraphQL.InputType("TimeBoxWhereInput", {
   isAbstract: true
@@ -35,7 +35,17 @@ export class TimeBoxWhereInput {
   @TypeGraphQL.Field(_type => DateTimeFilter, {
     nullable: true
   })
-  closedAt?: DateTimeFilter | undefined;
+  updatedAt?: DateTimeFilter | undefined;
+
+  @TypeGraphQL.Field(_type => DateTimeFilter, {
+    nullable: true
+  })
+  start?: DateTimeFilter | undefined;
+
+  @TypeGraphQL.Field(_type => DateTimeFilter, {
+    nullable: true
+  })
+  end?: DateTimeFilter | undefined;
 
   @TypeGraphQL.Field(_type => BoolFilter, {
     nullable: true
@@ -47,8 +57,8 @@ export class TimeBoxWhereInput {
   })
   exercisingSession?: ExercisingSessionRelationFilter | undefined;
 
-  @TypeGraphQL.Field(_type => IntFilter, {
+  @TypeGraphQL.Field(_type => StringNullableFilter, {
     nullable: true
   })
-  exercisingSessionId?: IntFilter | undefined;
+  exercisingSessionId?: StringNullableFilter | undefined;
 }

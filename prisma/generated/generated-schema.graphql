@@ -7,42 +7,28 @@ type AffectedRowsOutput {
   count: Int!
 }
 
-type AggregateBreathingChain {
-  _count: BreathingChainCountAggregate
-  _max: BreathingChainMaxAggregate
-  _min: BreathingChainMinAggregate
-}
-
 type AggregateExercise {
-  _avg: ExerciseAvgAggregate
   _count: ExerciseCountAggregate
   _max: ExerciseMaxAggregate
   _min: ExerciseMinAggregate
-  _sum: ExerciseSumAggregate
 }
 
 type AggregateExercisingSession {
-  _avg: ExercisingSessionAvgAggregate
   _count: ExercisingSessionCountAggregate
   _max: ExercisingSessionMaxAggregate
   _min: ExercisingSessionMinAggregate
-  _sum: ExercisingSessionSumAggregate
 }
 
 type AggregateMuscleGroup {
-  _avg: MuscleGroupAvgAggregate
   _count: MuscleGroupCountAggregate
   _max: MuscleGroupMaxAggregate
   _min: MuscleGroupMinAggregate
-  _sum: MuscleGroupSumAggregate
 }
 
 type AggregateTimeBox {
-  _avg: TimeBoxAvgAggregate
   _count: TimeBoxCountAggregate
   _max: TimeBoxMaxAggregate
   _min: TimeBoxMinAggregate
-  _sum: TimeBoxSumAggregate
 }
 
 input BoolFieldUpdateOperationsInput {
@@ -60,171 +46,6 @@ input BoolWithAggregatesFilter {
   _min: NestedBoolFilter
   equals: Boolean
   not: NestedBoolWithAggregatesFilter
-}
-
-type BreathingChain {
-  _count: BreathingChainCount
-  createdAt: DateTime!
-  description: String!
-  exercisingSessions(cursor: ExercisingSessionWhereUniqueInput, distinct: [ExercisingSessionScalarFieldEnum!], orderBy: [ExercisingSessionOrderByWithRelationInput!], skip: Int, take: Int, where: ExercisingSessionWhereInput): [ExercisingSession!]!
-  id: String!
-  updatedAt: DateTime!
-}
-
-type BreathingChainCount {
-  exercisingSessions: Int!
-}
-
-type BreathingChainCountAggregate {
-  _all: Int!
-  createdAt: Int!
-  description: Int!
-  id: Int!
-  updatedAt: Int!
-}
-
-input BreathingChainCountOrderByAggregateInput {
-  description: SortOrder
-  id: SortOrder
-}
-
-input BreathingChainCreateInput {
-  description: String
-  exercisingSessions: ExercisingSessionCreateNestedManyWithoutBreathingChainInput
-  id: String
-}
-
-input BreathingChainCreateManyInput {
-  description: String
-  id: String
-}
-
-input BreathingChainCreateNestedOneWithoutExercisingSessionsInput {
-  connect: BreathingChainWhereUniqueInput
-  connectOrCreate: BreathingChainCreateOrConnectWithoutExercisingSessionsInput
-  create: BreathingChainCreateWithoutExercisingSessionsInput
-}
-
-input BreathingChainCreateOrConnectWithoutExercisingSessionsInput {
-  create: BreathingChainCreateWithoutExercisingSessionsInput!
-  where: BreathingChainWhereUniqueInput!
-}
-
-input BreathingChainCreateWithoutExercisingSessionsInput {
-  description: String
-  id: String
-}
-
-type BreathingChainGroupBy {
-  _count: BreathingChainCountAggregate
-  _max: BreathingChainMaxAggregate
-  _min: BreathingChainMinAggregate
-  createdAt: DateTime!
-  description: String!
-  id: String!
-  updatedAt: DateTime!
-}
-
-type BreathingChainMaxAggregate {
-  createdAt: DateTime
-  description: String
-  id: String
-  updatedAt: DateTime
-}
-
-input BreathingChainMaxOrderByAggregateInput {
-  description: SortOrder
-  id: SortOrder
-}
-
-type BreathingChainMinAggregate {
-  createdAt: DateTime
-  description: String
-  id: String
-  updatedAt: DateTime
-}
-
-input BreathingChainMinOrderByAggregateInput {
-  description: SortOrder
-  id: SortOrder
-}
-
-input BreathingChainOrderByWithAggregationInput {
-  _count: BreathingChainCountOrderByAggregateInput
-  _max: BreathingChainMaxOrderByAggregateInput
-  _min: BreathingChainMinOrderByAggregateInput
-  description: SortOrder
-  id: SortOrder
-}
-
-input BreathingChainOrderByWithRelationInput {
-  description: SortOrder
-  exercisingSessions: ExercisingSessionOrderByRelationAggregateInput
-  id: SortOrder
-}
-
-input BreathingChainRelationFilter {
-  is: BreathingChainWhereInput
-  isNot: BreathingChainWhereInput
-}
-
-enum BreathingChainScalarFieldEnum {
-  createdAt
-  description
-  id
-  updatedAt
-}
-
-input BreathingChainScalarWhereWithAggregatesInput {
-  AND: [BreathingChainScalarWhereWithAggregatesInput!]
-  NOT: [BreathingChainScalarWhereWithAggregatesInput!]
-  OR: [BreathingChainScalarWhereWithAggregatesInput!]
-  description: StringWithAggregatesFilter
-  id: StringWithAggregatesFilter
-}
-
-input BreathingChainUpdateInput {
-  description: StringFieldUpdateOperationsInput
-  exercisingSessions: ExercisingSessionUpdateManyWithoutBreathingChainNestedInput
-  id: StringFieldUpdateOperationsInput
-}
-
-input BreathingChainUpdateManyMutationInput {
-  description: StringFieldUpdateOperationsInput
-  id: StringFieldUpdateOperationsInput
-}
-
-input BreathingChainUpdateOneWithoutExercisingSessionsNestedInput {
-  connect: BreathingChainWhereUniqueInput
-  connectOrCreate: BreathingChainCreateOrConnectWithoutExercisingSessionsInput
-  create: BreathingChainCreateWithoutExercisingSessionsInput
-  delete: Boolean
-  disconnect: Boolean
-  update: BreathingChainUpdateWithoutExercisingSessionsInput
-  upsert: BreathingChainUpsertWithoutExercisingSessionsInput
-}
-
-input BreathingChainUpdateWithoutExercisingSessionsInput {
-  description: StringFieldUpdateOperationsInput
-  id: StringFieldUpdateOperationsInput
-}
-
-input BreathingChainUpsertWithoutExercisingSessionsInput {
-  create: BreathingChainCreateWithoutExercisingSessionsInput!
-  update: BreathingChainUpdateWithoutExercisingSessionsInput!
-}
-
-input BreathingChainWhereInput {
-  AND: [BreathingChainWhereInput!]
-  NOT: [BreathingChainWhereInput!]
-  OR: [BreathingChainWhereInput!]
-  description: StringFilter
-  exercisingSessions: ExercisingSessionListRelationFilter
-  id: StringFilter
-}
-
-input BreathingChainWhereUniqueInput {
-  id: String
 }
 
 """
@@ -288,21 +109,34 @@ input EnumDifficultyWithAggregatesFilter {
   notIn: [Difficulty!]
 }
 
+input EnumMuscleGroupEnumFieldUpdateOperationsInput {
+  set: MuscleGroupEnum
+}
+
+input EnumMuscleGroupEnumFilter {
+  equals: MuscleGroupEnum
+  in: [MuscleGroupEnum!]
+  not: NestedEnumMuscleGroupEnumFilter
+  notIn: [MuscleGroupEnum!]
+}
+
+input EnumMuscleGroupEnumWithAggregatesFilter {
+  _count: NestedIntFilter
+  _max: NestedEnumMuscleGroupEnumFilter
+  _min: NestedEnumMuscleGroupEnumFilter
+  equals: MuscleGroupEnum
+  in: [MuscleGroupEnum!]
+  not: NestedEnumMuscleGroupEnumWithAggregatesFilter
+  notIn: [MuscleGroupEnum!]
+}
+
 type Exercise {
   ExercisingSession(cursor: ExercisingSessionWhereUniqueInput, distinct: [ExercisingSessionScalarFieldEnum!], orderBy: [ExercisingSessionOrderByWithRelationInput!], skip: Int, take: Int, where: ExercisingSessionWhereInput): [ExercisingSession!]!
   _count: ExerciseCount
   difficulty: Difficulty!
-  id: Int!
+  id: String!
   muscleGroups(cursor: MuscleGroupWhereUniqueInput, distinct: [MuscleGroupScalarFieldEnum!], orderBy: [MuscleGroupOrderByWithRelationInput!], skip: Int, take: Int, where: MuscleGroupWhereInput): [MuscleGroup!]!
   name: String!
-}
-
-type ExerciseAvgAggregate {
-  id: Float
-}
-
-input ExerciseAvgOrderByAggregateInput {
-  id: SortOrder
 }
 
 type ExerciseCount {
@@ -325,14 +159,15 @@ input ExerciseCountOrderByAggregateInput {
 
 input ExerciseCreateInput {
   ExercisingSession: ExercisingSessionCreateNestedManyWithoutExerciseInput
-  difficulty: Difficulty!
+  difficulty: Difficulty
+  id: String
   muscleGroups: MuscleGroupCreateNestedManyWithoutExercisesInput
   name: String!
 }
 
 input ExerciseCreateManyInput {
-  difficulty: Difficulty!
-  id: Int
+  difficulty: Difficulty
+  id: String
   name: String!
 }
 
@@ -359,25 +194,25 @@ input ExerciseCreateOrConnectWithoutMuscleGroupsInput {
 }
 
 input ExerciseCreateWithoutExercisingSessionInput {
-  difficulty: Difficulty!
+  difficulty: Difficulty
+  id: String
   muscleGroups: MuscleGroupCreateNestedManyWithoutExercisesInput
   name: String!
 }
 
 input ExerciseCreateWithoutMuscleGroupsInput {
   ExercisingSession: ExercisingSessionCreateNestedManyWithoutExerciseInput
-  difficulty: Difficulty!
+  difficulty: Difficulty
+  id: String
   name: String!
 }
 
 type ExerciseGroupBy {
-  _avg: ExerciseAvgAggregate
   _count: ExerciseCountAggregate
   _max: ExerciseMaxAggregate
   _min: ExerciseMinAggregate
-  _sum: ExerciseSumAggregate
   difficulty: Difficulty!
-  id: Int!
+  id: String!
   name: String!
 }
 
@@ -389,7 +224,7 @@ input ExerciseListRelationFilter {
 
 type ExerciseMaxAggregate {
   difficulty: Difficulty
-  id: Int
+  id: String
   name: String
 }
 
@@ -401,7 +236,7 @@ input ExerciseMaxOrderByAggregateInput {
 
 type ExerciseMinAggregate {
   difficulty: Difficulty
-  id: Int
+  id: String
   name: String
 }
 
@@ -416,11 +251,9 @@ input ExerciseOrderByRelationAggregateInput {
 }
 
 input ExerciseOrderByWithAggregationInput {
-  _avg: ExerciseAvgOrderByAggregateInput
   _count: ExerciseCountOrderByAggregateInput
   _max: ExerciseMaxOrderByAggregateInput
   _min: ExerciseMinOrderByAggregateInput
-  _sum: ExerciseSumOrderByAggregateInput
   difficulty: SortOrder
   id: SortOrder
   name: SortOrder
@@ -450,7 +283,7 @@ input ExerciseScalarWhereInput {
   NOT: [ExerciseScalarWhereInput!]
   OR: [ExerciseScalarWhereInput!]
   difficulty: EnumDifficultyFilter
-  id: IntFilter
+  id: StringFilter
   name: StringFilter
 }
 
@@ -459,27 +292,21 @@ input ExerciseScalarWhereWithAggregatesInput {
   NOT: [ExerciseScalarWhereWithAggregatesInput!]
   OR: [ExerciseScalarWhereWithAggregatesInput!]
   difficulty: EnumDifficultyWithAggregatesFilter
-  id: IntWithAggregatesFilter
+  id: StringWithAggregatesFilter
   name: StringWithAggregatesFilter
-}
-
-type ExerciseSumAggregate {
-  id: Int
-}
-
-input ExerciseSumOrderByAggregateInput {
-  id: SortOrder
 }
 
 input ExerciseUpdateInput {
   ExercisingSession: ExercisingSessionUpdateManyWithoutExerciseNestedInput
   difficulty: EnumDifficultyFieldUpdateOperationsInput
+  id: StringFieldUpdateOperationsInput
   muscleGroups: MuscleGroupUpdateManyWithoutExercisesNestedInput
   name: StringFieldUpdateOperationsInput
 }
 
 input ExerciseUpdateManyMutationInput {
   difficulty: EnumDifficultyFieldUpdateOperationsInput
+  id: StringFieldUpdateOperationsInput
   name: StringFieldUpdateOperationsInput
 }
 
@@ -518,6 +345,7 @@ input ExerciseUpdateWithWhereUniqueWithoutMuscleGroupsInput {
 
 input ExerciseUpdateWithoutExercisingSessionInput {
   difficulty: EnumDifficultyFieldUpdateOperationsInput
+  id: StringFieldUpdateOperationsInput
   muscleGroups: MuscleGroupUpdateManyWithoutExercisesNestedInput
   name: StringFieldUpdateOperationsInput
 }
@@ -525,6 +353,7 @@ input ExerciseUpdateWithoutExercisingSessionInput {
 input ExerciseUpdateWithoutMuscleGroupsInput {
   ExercisingSession: ExercisingSessionUpdateManyWithoutExerciseNestedInput
   difficulty: EnumDifficultyFieldUpdateOperationsInput
+  id: StringFieldUpdateOperationsInput
   name: StringFieldUpdateOperationsInput
 }
 
@@ -545,35 +374,25 @@ input ExerciseWhereInput {
   NOT: [ExerciseWhereInput!]
   OR: [ExerciseWhereInput!]
   difficulty: EnumDifficultyFilter
-  id: IntFilter
+  id: StringFilter
   muscleGroups: MuscleGroupListRelationFilter
   name: StringFilter
 }
 
 input ExerciseWhereUniqueInput {
-  id: Int
+  id: String
   name: String
 }
 
 type ExercisingSession {
-  BreathingChain: BreathingChain
   TimeBox(cursor: TimeBoxWhereUniqueInput, distinct: [TimeBoxScalarFieldEnum!], orderBy: [TimeBoxOrderByWithRelationInput!], skip: Int, take: Int, where: TimeBoxWhereInput): [TimeBox!]!
   _count: ExercisingSessionCount
-  breathingChainId: String!
+  createdAt: DateTime!
   exercise: Exercise
-  exerciseId: Int!
-  id: Int!
+  exerciseId: String
+  id: String!
   message: String
-}
-
-type ExercisingSessionAvgAggregate {
-  exerciseId: Float
-  id: Float
-}
-
-input ExercisingSessionAvgOrderByAggregateInput {
-  exerciseId: SortOrder
-  id: SortOrder
+  updatedAt: DateTime!
 }
 
 type ExercisingSessionCount {
@@ -582,41 +401,32 @@ type ExercisingSessionCount {
 
 type ExercisingSessionCountAggregate {
   _all: Int!
-  breathingChainId: Int!
+  createdAt: Int!
   exerciseId: Int!
   id: Int!
   message: Int!
+  updatedAt: Int!
 }
 
 input ExercisingSessionCountOrderByAggregateInput {
-  breathingChainId: SortOrder
   exerciseId: SortOrder
   id: SortOrder
   message: SortOrder
+  updatedAt: SortOrder
 }
 
 input ExercisingSessionCreateInput {
-  BreathingChain: BreathingChainCreateNestedOneWithoutExercisingSessionsInput
   TimeBox: TimeBoxCreateNestedManyWithoutExercisingSessionInput
   exercise: ExerciseCreateNestedOneWithoutExercisingSessionInput
+  id: String
   message: String
-}
-
-input ExercisingSessionCreateManyBreathingChainInput {
-  exerciseId: Int!
-  id: Int
-  message: String
-}
-
-input ExercisingSessionCreateManyBreathingChainInputEnvelope {
-  data: [ExercisingSessionCreateManyBreathingChainInput!]!
-  skipDuplicates: Boolean
+  updatedAt: DateTime
 }
 
 input ExercisingSessionCreateManyExerciseInput {
-  breathingChainId: String!
-  id: Int
+  id: String
   message: String
+  updatedAt: DateTime
 }
 
 input ExercisingSessionCreateManyExerciseInputEnvelope {
@@ -625,17 +435,10 @@ input ExercisingSessionCreateManyExerciseInputEnvelope {
 }
 
 input ExercisingSessionCreateManyInput {
-  breathingChainId: String!
-  exerciseId: Int!
-  id: Int
+  exerciseId: String
+  id: String
   message: String
-}
-
-input ExercisingSessionCreateNestedManyWithoutBreathingChainInput {
-  connect: [ExercisingSessionWhereUniqueInput!]
-  connectOrCreate: [ExercisingSessionCreateOrConnectWithoutBreathingChainInput!]
-  create: [ExercisingSessionCreateWithoutBreathingChainInput!]
-  createMany: ExercisingSessionCreateManyBreathingChainInputEnvelope
+  updatedAt: DateTime
 }
 
 input ExercisingSessionCreateNestedManyWithoutExerciseInput {
@@ -651,11 +454,6 @@ input ExercisingSessionCreateNestedOneWithoutTimeBoxInput {
   create: ExercisingSessionCreateWithoutTimeBoxInput
 }
 
-input ExercisingSessionCreateOrConnectWithoutBreathingChainInput {
-  create: ExercisingSessionCreateWithoutBreathingChainInput!
-  where: ExercisingSessionWhereUniqueInput!
-}
-
 input ExercisingSessionCreateOrConnectWithoutExerciseInput {
   create: ExercisingSessionCreateWithoutExerciseInput!
   where: ExercisingSessionWhereUniqueInput!
@@ -666,39 +464,29 @@ input ExercisingSessionCreateOrConnectWithoutTimeBoxInput {
   where: ExercisingSessionWhereUniqueInput!
 }
 
-input ExercisingSessionCreateWithoutBreathingChainInput {
-  TimeBox: TimeBoxCreateNestedManyWithoutExercisingSessionInput
-  exercise: ExerciseCreateNestedOneWithoutExercisingSessionInput
-  message: String
-}
-
 input ExercisingSessionCreateWithoutExerciseInput {
-  BreathingChain: BreathingChainCreateNestedOneWithoutExercisingSessionsInput
   TimeBox: TimeBoxCreateNestedManyWithoutExercisingSessionInput
+  id: String
   message: String
+  updatedAt: DateTime
 }
 
 input ExercisingSessionCreateWithoutTimeBoxInput {
-  BreathingChain: BreathingChainCreateNestedOneWithoutExercisingSessionsInput
   exercise: ExerciseCreateNestedOneWithoutExercisingSessionInput
+  id: String
   message: String
-}
-
-input ExercisingSessionExerciseIdBreathingChainIdCompoundUniqueInput {
-  breathingChainId: String!
-  exerciseId: Int!
+  updatedAt: DateTime
 }
 
 type ExercisingSessionGroupBy {
-  _avg: ExercisingSessionAvgAggregate
   _count: ExercisingSessionCountAggregate
   _max: ExercisingSessionMaxAggregate
   _min: ExercisingSessionMinAggregate
-  _sum: ExercisingSessionSumAggregate
-  breathingChainId: String!
-  exerciseId: Int!
-  id: Int!
+  createdAt: DateTime!
+  exerciseId: String
+  id: String!
   message: String
+  updatedAt: DateTime!
 }
 
 input ExercisingSessionListRelationFilter {
@@ -708,31 +496,33 @@ input ExercisingSessionListRelationFilter {
 }
 
 type ExercisingSessionMaxAggregate {
-  breathingChainId: String
-  exerciseId: Int
-  id: Int
+  createdAt: DateTime
+  exerciseId: String
+  id: String
   message: String
+  updatedAt: DateTime
 }
 
 input ExercisingSessionMaxOrderByAggregateInput {
-  breathingChainId: SortOrder
   exerciseId: SortOrder
   id: SortOrder
   message: SortOrder
+  updatedAt: SortOrder
 }
 
 type ExercisingSessionMinAggregate {
-  breathingChainId: String
-  exerciseId: Int
-  id: Int
+  createdAt: DateTime
+  exerciseId: String
+  id: String
   message: String
+  updatedAt: DateTime
 }
 
 input ExercisingSessionMinOrderByAggregateInput {
-  breathingChainId: SortOrder
   exerciseId: SortOrder
   id: SortOrder
   message: SortOrder
+  updatedAt: SortOrder
 }
 
 input ExercisingSessionOrderByRelationAggregateInput {
@@ -740,25 +530,22 @@ input ExercisingSessionOrderByRelationAggregateInput {
 }
 
 input ExercisingSessionOrderByWithAggregationInput {
-  _avg: ExercisingSessionAvgOrderByAggregateInput
   _count: ExercisingSessionCountOrderByAggregateInput
   _max: ExercisingSessionMaxOrderByAggregateInput
   _min: ExercisingSessionMinOrderByAggregateInput
-  _sum: ExercisingSessionSumOrderByAggregateInput
-  breathingChainId: SortOrder
   exerciseId: SortOrder
   id: SortOrder
   message: SortOrder
+  updatedAt: SortOrder
 }
 
 input ExercisingSessionOrderByWithRelationInput {
-  BreathingChain: BreathingChainOrderByWithRelationInput
   TimeBox: TimeBoxOrderByRelationAggregateInput
-  breathingChainId: SortOrder
   exercise: ExerciseOrderByWithRelationInput
   exerciseId: SortOrder
   id: SortOrder
   message: SortOrder
+  updatedAt: SortOrder
 }
 
 input ExercisingSessionRelationFilter {
@@ -767,75 +554,50 @@ input ExercisingSessionRelationFilter {
 }
 
 enum ExercisingSessionScalarFieldEnum {
-  breathingChainId
+  createdAt
   exerciseId
   id
   message
+  updatedAt
 }
 
 input ExercisingSessionScalarWhereInput {
   AND: [ExercisingSessionScalarWhereInput!]
   NOT: [ExercisingSessionScalarWhereInput!]
   OR: [ExercisingSessionScalarWhereInput!]
-  breathingChainId: StringFilter
-  exerciseId: IntFilter
-  id: IntFilter
+  exerciseId: StringNullableFilter
+  id: StringFilter
   message: StringNullableFilter
+  updatedAt: DateTimeFilter
 }
 
 input ExercisingSessionScalarWhereWithAggregatesInput {
   AND: [ExercisingSessionScalarWhereWithAggregatesInput!]
   NOT: [ExercisingSessionScalarWhereWithAggregatesInput!]
   OR: [ExercisingSessionScalarWhereWithAggregatesInput!]
-  breathingChainId: StringWithAggregatesFilter
-  exerciseId: IntWithAggregatesFilter
-  id: IntWithAggregatesFilter
+  exerciseId: StringNullableWithAggregatesFilter
+  id: StringWithAggregatesFilter
   message: StringNullableWithAggregatesFilter
-}
-
-type ExercisingSessionSumAggregate {
-  exerciseId: Int
-  id: Int
-}
-
-input ExercisingSessionSumOrderByAggregateInput {
-  exerciseId: SortOrder
-  id: SortOrder
+  updatedAt: DateTimeWithAggregatesFilter
 }
 
 input ExercisingSessionUpdateInput {
-  BreathingChain: BreathingChainUpdateOneWithoutExercisingSessionsNestedInput
   TimeBox: TimeBoxUpdateManyWithoutExercisingSessionNestedInput
   exercise: ExerciseUpdateOneWithoutExercisingSessionNestedInput
+  id: StringFieldUpdateOperationsInput
   message: NullableStringFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
 }
 
 input ExercisingSessionUpdateManyMutationInput {
+  id: StringFieldUpdateOperationsInput
   message: NullableStringFieldUpdateOperationsInput
-}
-
-input ExercisingSessionUpdateManyWithWhereWithoutBreathingChainInput {
-  data: ExercisingSessionUpdateManyMutationInput!
-  where: ExercisingSessionScalarWhereInput!
+  updatedAt: DateTimeFieldUpdateOperationsInput
 }
 
 input ExercisingSessionUpdateManyWithWhereWithoutExerciseInput {
   data: ExercisingSessionUpdateManyMutationInput!
   where: ExercisingSessionScalarWhereInput!
-}
-
-input ExercisingSessionUpdateManyWithoutBreathingChainNestedInput {
-  connect: [ExercisingSessionWhereUniqueInput!]
-  connectOrCreate: [ExercisingSessionCreateOrConnectWithoutBreathingChainInput!]
-  create: [ExercisingSessionCreateWithoutBreathingChainInput!]
-  createMany: ExercisingSessionCreateManyBreathingChainInputEnvelope
-  delete: [ExercisingSessionWhereUniqueInput!]
-  deleteMany: [ExercisingSessionScalarWhereInput!]
-  disconnect: [ExercisingSessionWhereUniqueInput!]
-  set: [ExercisingSessionWhereUniqueInput!]
-  update: [ExercisingSessionUpdateWithWhereUniqueWithoutBreathingChainInput!]
-  updateMany: [ExercisingSessionUpdateManyWithWhereWithoutBreathingChainInput!]
-  upsert: [ExercisingSessionUpsertWithWhereUniqueWithoutBreathingChainInput!]
 }
 
 input ExercisingSessionUpdateManyWithoutExerciseNestedInput {
@@ -852,17 +614,14 @@ input ExercisingSessionUpdateManyWithoutExerciseNestedInput {
   upsert: [ExercisingSessionUpsertWithWhereUniqueWithoutExerciseInput!]
 }
 
-input ExercisingSessionUpdateOneRequiredWithoutTimeBoxNestedInput {
+input ExercisingSessionUpdateOneWithoutTimeBoxNestedInput {
   connect: ExercisingSessionWhereUniqueInput
   connectOrCreate: ExercisingSessionCreateOrConnectWithoutTimeBoxInput
   create: ExercisingSessionCreateWithoutTimeBoxInput
+  delete: Boolean
+  disconnect: Boolean
   update: ExercisingSessionUpdateWithoutTimeBoxInput
   upsert: ExercisingSessionUpsertWithoutTimeBoxInput
-}
-
-input ExercisingSessionUpdateWithWhereUniqueWithoutBreathingChainInput {
-  data: ExercisingSessionUpdateWithoutBreathingChainInput!
-  where: ExercisingSessionWhereUniqueInput!
 }
 
 input ExercisingSessionUpdateWithWhereUniqueWithoutExerciseInput {
@@ -870,28 +629,18 @@ input ExercisingSessionUpdateWithWhereUniqueWithoutExerciseInput {
   where: ExercisingSessionWhereUniqueInput!
 }
 
-input ExercisingSessionUpdateWithoutBreathingChainInput {
-  TimeBox: TimeBoxUpdateManyWithoutExercisingSessionNestedInput
-  exercise: ExerciseUpdateOneWithoutExercisingSessionNestedInput
-  message: NullableStringFieldUpdateOperationsInput
-}
-
 input ExercisingSessionUpdateWithoutExerciseInput {
-  BreathingChain: BreathingChainUpdateOneWithoutExercisingSessionsNestedInput
   TimeBox: TimeBoxUpdateManyWithoutExercisingSessionNestedInput
+  id: StringFieldUpdateOperationsInput
   message: NullableStringFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
 }
 
 input ExercisingSessionUpdateWithoutTimeBoxInput {
-  BreathingChain: BreathingChainUpdateOneWithoutExercisingSessionsNestedInput
   exercise: ExerciseUpdateOneWithoutExercisingSessionNestedInput
+  id: StringFieldUpdateOperationsInput
   message: NullableStringFieldUpdateOperationsInput
-}
-
-input ExercisingSessionUpsertWithWhereUniqueWithoutBreathingChainInput {
-  create: ExercisingSessionCreateWithoutBreathingChainInput!
-  update: ExercisingSessionUpdateWithoutBreathingChainInput!
-  where: ExercisingSessionWhereUniqueInput!
+  updatedAt: DateTimeFieldUpdateOperationsInput
 }
 
 input ExercisingSessionUpsertWithWhereUniqueWithoutExerciseInput {
@@ -907,62 +656,25 @@ input ExercisingSessionUpsertWithoutTimeBoxInput {
 
 input ExercisingSessionWhereInput {
   AND: [ExercisingSessionWhereInput!]
-  BreathingChain: BreathingChainRelationFilter
   NOT: [ExercisingSessionWhereInput!]
   OR: [ExercisingSessionWhereInput!]
   TimeBox: TimeBoxListRelationFilter
-  breathingChainId: StringFilter
   exercise: ExerciseRelationFilter
-  exerciseId: IntFilter
-  id: IntFilter
+  exerciseId: StringNullableFilter
+  id: StringFilter
   message: StringNullableFilter
+  updatedAt: DateTimeFilter
 }
 
 input ExercisingSessionWhereUniqueInput {
-  exerciseId_breathingChainId: ExercisingSessionExerciseIdBreathingChainIdCompoundUniqueInput
-  id: Int
-}
-
-input IntFilter {
-  equals: Int
-  gt: Int
-  gte: Int
-  in: [Int!]
-  lt: Int
-  lte: Int
-  not: NestedIntFilter
-  notIn: [Int!]
-}
-
-input IntWithAggregatesFilter {
-  _avg: NestedFloatFilter
-  _count: NestedIntFilter
-  _max: NestedIntFilter
-  _min: NestedIntFilter
-  _sum: NestedIntFilter
-  equals: Int
-  gt: Int
-  gte: Int
-  in: [Int!]
-  lt: Int
-  lte: Int
-  not: NestedIntWithAggregatesFilter
-  notIn: [Int!]
+  id: String
 }
 
 type MuscleGroup {
   _count: MuscleGroupCount
   exercises(cursor: ExerciseWhereUniqueInput, distinct: [ExerciseScalarFieldEnum!], orderBy: [ExerciseOrderByWithRelationInput!], skip: Int, take: Int, where: ExerciseWhereInput): [Exercise!]!
-  id: Int!
-  name: String!
-}
-
-type MuscleGroupAvgAggregate {
-  id: Float
-}
-
-input MuscleGroupAvgOrderByAggregateInput {
-  id: SortOrder
+  id: String!
+  name: MuscleGroupEnum!
 }
 
 type MuscleGroupCount {
@@ -982,12 +694,13 @@ input MuscleGroupCountOrderByAggregateInput {
 
 input MuscleGroupCreateInput {
   exercises: ExerciseCreateNestedManyWithoutMuscleGroupsInput
-  name: String!
+  id: String
+  name: MuscleGroupEnum!
 }
 
 input MuscleGroupCreateManyInput {
-  id: Int
-  name: String!
+  id: String
+  name: MuscleGroupEnum!
 }
 
 input MuscleGroupCreateNestedManyWithoutExercisesInput {
@@ -1002,17 +715,27 @@ input MuscleGroupCreateOrConnectWithoutExercisesInput {
 }
 
 input MuscleGroupCreateWithoutExercisesInput {
-  name: String!
+  id: String
+  name: MuscleGroupEnum!
+}
+
+enum MuscleGroupEnum {
+  ABS
+  BACK
+  CHEST
+  CORE
+  HIPS
+  LEGS
+  SHOULDERS
+  TRICEPS
 }
 
 type MuscleGroupGroupBy {
-  _avg: MuscleGroupAvgAggregate
   _count: MuscleGroupCountAggregate
   _max: MuscleGroupMaxAggregate
   _min: MuscleGroupMinAggregate
-  _sum: MuscleGroupSumAggregate
-  id: Int!
-  name: String!
+  id: String!
+  name: MuscleGroupEnum!
 }
 
 input MuscleGroupListRelationFilter {
@@ -1022,8 +745,8 @@ input MuscleGroupListRelationFilter {
 }
 
 type MuscleGroupMaxAggregate {
-  id: Int
-  name: String
+  id: String
+  name: MuscleGroupEnum
 }
 
 input MuscleGroupMaxOrderByAggregateInput {
@@ -1032,8 +755,8 @@ input MuscleGroupMaxOrderByAggregateInput {
 }
 
 type MuscleGroupMinAggregate {
-  id: Int
-  name: String
+  id: String
+  name: MuscleGroupEnum
 }
 
 input MuscleGroupMinOrderByAggregateInput {
@@ -1046,11 +769,9 @@ input MuscleGroupOrderByRelationAggregateInput {
 }
 
 input MuscleGroupOrderByWithAggregationInput {
-  _avg: MuscleGroupAvgOrderByAggregateInput
   _count: MuscleGroupCountOrderByAggregateInput
   _max: MuscleGroupMaxOrderByAggregateInput
   _min: MuscleGroupMinOrderByAggregateInput
-  _sum: MuscleGroupSumOrderByAggregateInput
   id: SortOrder
   name: SortOrder
 }
@@ -1070,33 +791,27 @@ input MuscleGroupScalarWhereInput {
   AND: [MuscleGroupScalarWhereInput!]
   NOT: [MuscleGroupScalarWhereInput!]
   OR: [MuscleGroupScalarWhereInput!]
-  id: IntFilter
-  name: StringFilter
+  id: StringFilter
+  name: EnumMuscleGroupEnumFilter
 }
 
 input MuscleGroupScalarWhereWithAggregatesInput {
   AND: [MuscleGroupScalarWhereWithAggregatesInput!]
   NOT: [MuscleGroupScalarWhereWithAggregatesInput!]
   OR: [MuscleGroupScalarWhereWithAggregatesInput!]
-  id: IntWithAggregatesFilter
-  name: StringWithAggregatesFilter
-}
-
-type MuscleGroupSumAggregate {
-  id: Int
-}
-
-input MuscleGroupSumOrderByAggregateInput {
-  id: SortOrder
+  id: StringWithAggregatesFilter
+  name: EnumMuscleGroupEnumWithAggregatesFilter
 }
 
 input MuscleGroupUpdateInput {
   exercises: ExerciseUpdateManyWithoutMuscleGroupsNestedInput
-  name: StringFieldUpdateOperationsInput
+  id: StringFieldUpdateOperationsInput
+  name: EnumMuscleGroupEnumFieldUpdateOperationsInput
 }
 
 input MuscleGroupUpdateManyMutationInput {
-  name: StringFieldUpdateOperationsInput
+  id: StringFieldUpdateOperationsInput
+  name: EnumMuscleGroupEnumFieldUpdateOperationsInput
 }
 
 input MuscleGroupUpdateManyWithWhereWithoutExercisesInput {
@@ -1123,7 +838,8 @@ input MuscleGroupUpdateWithWhereUniqueWithoutExercisesInput {
 }
 
 input MuscleGroupUpdateWithoutExercisesInput {
-  name: StringFieldUpdateOperationsInput
+  id: StringFieldUpdateOperationsInput
+  name: EnumMuscleGroupEnumFieldUpdateOperationsInput
 }
 
 input MuscleGroupUpsertWithWhereUniqueWithoutExercisesInput {
@@ -1137,47 +853,40 @@ input MuscleGroupWhereInput {
   NOT: [MuscleGroupWhereInput!]
   OR: [MuscleGroupWhereInput!]
   exercises: ExerciseListRelationFilter
-  id: IntFilter
-  name: StringFilter
+  id: StringFilter
+  name: EnumMuscleGroupEnumFilter
 }
 
 input MuscleGroupWhereUniqueInput {
-  id: Int
-  name: String
+  id: String
+  name: MuscleGroupEnum
 }
 
 type Mutation {
-  createManyBreathingChain(data: [BreathingChainCreateManyInput!]!, skipDuplicates: Boolean): AffectedRowsOutput!
   createManyExercise(data: [ExerciseCreateManyInput!]!, skipDuplicates: Boolean): AffectedRowsOutput!
   createManyExercisingSession(data: [ExercisingSessionCreateManyInput!]!, skipDuplicates: Boolean): AffectedRowsOutput!
   createManyMuscleGroup(data: [MuscleGroupCreateManyInput!]!, skipDuplicates: Boolean): AffectedRowsOutput!
   createManyTimeBox(data: [TimeBoxCreateManyInput!]!, skipDuplicates: Boolean): AffectedRowsOutput!
-  createOneBreathingChain(data: BreathingChainCreateInput!): BreathingChain!
   createOneExercise(data: ExerciseCreateInput!): Exercise!
   createOneExercisingSession(data: ExercisingSessionCreateInput!): ExercisingSession!
   createOneMuscleGroup(data: MuscleGroupCreateInput!): MuscleGroup!
   createOneTimeBox(data: TimeBoxCreateInput!): TimeBox!
-  deleteManyBreathingChain(where: BreathingChainWhereInput): AffectedRowsOutput!
   deleteManyExercise(where: ExerciseWhereInput): AffectedRowsOutput!
   deleteManyExercisingSession(where: ExercisingSessionWhereInput): AffectedRowsOutput!
   deleteManyMuscleGroup(where: MuscleGroupWhereInput): AffectedRowsOutput!
   deleteManyTimeBox(where: TimeBoxWhereInput): AffectedRowsOutput!
-  deleteOneBreathingChain(where: BreathingChainWhereUniqueInput!): BreathingChain
   deleteOneExercise(where: ExerciseWhereUniqueInput!): Exercise
   deleteOneExercisingSession(where: ExercisingSessionWhereUniqueInput!): ExercisingSession
   deleteOneMuscleGroup(where: MuscleGroupWhereUniqueInput!): MuscleGroup
   deleteOneTimeBox(where: TimeBoxWhereUniqueInput!): TimeBox
-  updateManyBreathingChain(data: BreathingChainUpdateManyMutationInput!, where: BreathingChainWhereInput): AffectedRowsOutput!
   updateManyExercise(data: ExerciseUpdateManyMutationInput!, where: ExerciseWhereInput): AffectedRowsOutput!
   updateManyExercisingSession(data: ExercisingSessionUpdateManyMutationInput!, where: ExercisingSessionWhereInput): AffectedRowsOutput!
   updateManyMuscleGroup(data: MuscleGroupUpdateManyMutationInput!, where: MuscleGroupWhereInput): AffectedRowsOutput!
   updateManyTimeBox(data: TimeBoxUpdateManyMutationInput!, where: TimeBoxWhereInput): AffectedRowsOutput!
-  updateOneBreathingChain(data: BreathingChainUpdateInput!, where: BreathingChainWhereUniqueInput!): BreathingChain
   updateOneExercise(data: ExerciseUpdateInput!, where: ExerciseWhereUniqueInput!): Exercise
   updateOneExercisingSession(data: ExercisingSessionUpdateInput!, where: ExercisingSessionWhereUniqueInput!): ExercisingSession
   updateOneMuscleGroup(data: MuscleGroupUpdateInput!, where: MuscleGroupWhereUniqueInput!): MuscleGroup
   updateOneTimeBox(data: TimeBoxUpdateInput!, where: TimeBoxWhereUniqueInput!): TimeBox
-  upsertOneBreathingChain(create: BreathingChainCreateInput!, update: BreathingChainUpdateInput!, where: BreathingChainWhereUniqueInput!): BreathingChain!
   upsertOneExercise(create: ExerciseCreateInput!, update: ExerciseUpdateInput!, where: ExerciseWhereUniqueInput!): Exercise!
   upsertOneExercisingSession(create: ExercisingSessionCreateInput!, update: ExercisingSessionUpdateInput!, where: ExercisingSessionWhereUniqueInput!): ExercisingSession!
   upsertOneMuscleGroup(create: MuscleGroupCreateInput!, update: MuscleGroupUpdateInput!, where: MuscleGroupWhereUniqueInput!): MuscleGroup!
@@ -1239,15 +948,21 @@ input NestedEnumDifficultyWithAggregatesFilter {
   notIn: [Difficulty!]
 }
 
-input NestedFloatFilter {
-  equals: Float
-  gt: Float
-  gte: Float
-  in: [Float!]
-  lt: Float
-  lte: Float
-  not: NestedFloatFilter
-  notIn: [Float!]
+input NestedEnumMuscleGroupEnumFilter {
+  equals: MuscleGroupEnum
+  in: [MuscleGroupEnum!]
+  not: NestedEnumMuscleGroupEnumFilter
+  notIn: [MuscleGroupEnum!]
+}
+
+input NestedEnumMuscleGroupEnumWithAggregatesFilter {
+  _count: NestedIntFilter
+  _max: NestedEnumMuscleGroupEnumFilter
+  _min: NestedEnumMuscleGroupEnumFilter
+  equals: MuscleGroupEnum
+  in: [MuscleGroupEnum!]
+  not: NestedEnumMuscleGroupEnumWithAggregatesFilter
+  notIn: [MuscleGroupEnum!]
 }
 
 input NestedIntFilter {
@@ -1269,22 +984,6 @@ input NestedIntNullableFilter {
   lt: Int
   lte: Int
   not: NestedIntNullableFilter
-  notIn: [Int!]
-}
-
-input NestedIntWithAggregatesFilter {
-  _avg: NestedFloatFilter
-  _count: NestedIntFilter
-  _max: NestedIntFilter
-  _min: NestedIntFilter
-  _sum: NestedIntFilter
-  equals: Int
-  gt: Int
-  gte: Int
-  in: [Int!]
-  lt: Int
-  lte: Int
-  not: NestedIntWithAggregatesFilter
   notIn: [Int!]
 }
 
@@ -1355,19 +1054,14 @@ input NullableStringFieldUpdateOperationsInput {
 }
 
 type Query {
-  aggregateBreathingChain(cursor: BreathingChainWhereUniqueInput, orderBy: [BreathingChainOrderByWithRelationInput!], skip: Int, take: Int, where: BreathingChainWhereInput): AggregateBreathingChain!
   aggregateExercise(cursor: ExerciseWhereUniqueInput, orderBy: [ExerciseOrderByWithRelationInput!], skip: Int, take: Int, where: ExerciseWhereInput): AggregateExercise!
   aggregateExercisingSession(cursor: ExercisingSessionWhereUniqueInput, orderBy: [ExercisingSessionOrderByWithRelationInput!], skip: Int, take: Int, where: ExercisingSessionWhereInput): AggregateExercisingSession!
   aggregateMuscleGroup(cursor: MuscleGroupWhereUniqueInput, orderBy: [MuscleGroupOrderByWithRelationInput!], skip: Int, take: Int, where: MuscleGroupWhereInput): AggregateMuscleGroup!
   aggregateTimeBox(cursor: TimeBoxWhereUniqueInput, orderBy: [TimeBoxOrderByWithRelationInput!], skip: Int, take: Int, where: TimeBoxWhereInput): AggregateTimeBox!
-  breathingChain(where: BreathingChainWhereUniqueInput!): BreathingChain
-  breathingChains(cursor: BreathingChainWhereUniqueInput, distinct: [BreathingChainScalarFieldEnum!], orderBy: [BreathingChainOrderByWithRelationInput!], skip: Int, take: Int, where: BreathingChainWhereInput): [BreathingChain!]!
   exercise(where: ExerciseWhereUniqueInput!): Exercise
   exercises(cursor: ExerciseWhereUniqueInput, distinct: [ExerciseScalarFieldEnum!], orderBy: [ExerciseOrderByWithRelationInput!], skip: Int, take: Int, where: ExerciseWhereInput): [Exercise!]!
   exercisingSession(where: ExercisingSessionWhereUniqueInput!): ExercisingSession
   exercisingSessions(cursor: ExercisingSessionWhereUniqueInput, distinct: [ExercisingSessionScalarFieldEnum!], orderBy: [ExercisingSessionOrderByWithRelationInput!], skip: Int, take: Int, where: ExercisingSessionWhereInput): [ExercisingSession!]!
-  findFirstBreathingChain(cursor: BreathingChainWhereUniqueInput, distinct: [BreathingChainScalarFieldEnum!], orderBy: [BreathingChainOrderByWithRelationInput!], skip: Int, take: Int, where: BreathingChainWhereInput): BreathingChain
-  findFirstBreathingChainOrThrow(cursor: BreathingChainWhereUniqueInput, distinct: [BreathingChainScalarFieldEnum!], orderBy: [BreathingChainOrderByWithRelationInput!], skip: Int, take: Int, where: BreathingChainWhereInput): BreathingChain
   findFirstExercise(cursor: ExerciseWhereUniqueInput, distinct: [ExerciseScalarFieldEnum!], orderBy: [ExerciseOrderByWithRelationInput!], skip: Int, take: Int, where: ExerciseWhereInput): Exercise
   findFirstExerciseOrThrow(cursor: ExerciseWhereUniqueInput, distinct: [ExerciseScalarFieldEnum!], orderBy: [ExerciseOrderByWithRelationInput!], skip: Int, take: Int, where: ExerciseWhereInput): Exercise
   findFirstExercisingSession(cursor: ExercisingSessionWhereUniqueInput, distinct: [ExercisingSessionScalarFieldEnum!], orderBy: [ExercisingSessionOrderByWithRelationInput!], skip: Int, take: Int, where: ExercisingSessionWhereInput): ExercisingSession
@@ -1376,12 +1070,10 @@ type Query {
   findFirstMuscleGroupOrThrow(cursor: MuscleGroupWhereUniqueInput, distinct: [MuscleGroupScalarFieldEnum!], orderBy: [MuscleGroupOrderByWithRelationInput!], skip: Int, take: Int, where: MuscleGroupWhereInput): MuscleGroup
   findFirstTimeBox(cursor: TimeBoxWhereUniqueInput, distinct: [TimeBoxScalarFieldEnum!], orderBy: [TimeBoxOrderByWithRelationInput!], skip: Int, take: Int, where: TimeBoxWhereInput): TimeBox
   findFirstTimeBoxOrThrow(cursor: TimeBoxWhereUniqueInput, distinct: [TimeBoxScalarFieldEnum!], orderBy: [TimeBoxOrderByWithRelationInput!], skip: Int, take: Int, where: TimeBoxWhereInput): TimeBox
-  getBreathingChain(where: BreathingChainWhereUniqueInput!): BreathingChain
   getExercise(where: ExerciseWhereUniqueInput!): Exercise
   getExercisingSession(where: ExercisingSessionWhereUniqueInput!): ExercisingSession
   getMuscleGroup(where: MuscleGroupWhereUniqueInput!): MuscleGroup
   getTimeBox(where: TimeBoxWhereUniqueInput!): TimeBox
-  groupByBreathingChain(by: [BreathingChainScalarFieldEnum!]!, having: BreathingChainScalarWhereWithAggregatesInput, orderBy: [BreathingChainOrderByWithAggregationInput!], skip: Int, take: Int, where: BreathingChainWhereInput): [BreathingChainGroupBy!]!
   groupByExercise(by: [ExerciseScalarFieldEnum!]!, having: ExerciseScalarWhereWithAggregatesInput, orderBy: [ExerciseOrderByWithAggregationInput!], skip: Int, take: Int, where: ExerciseWhereInput): [ExerciseGroupBy!]!
   groupByExercisingSession(by: [ExercisingSessionScalarFieldEnum!]!, having: ExercisingSessionScalarWhereWithAggregatesInput, orderBy: [ExercisingSessionOrderByWithAggregationInput!], skip: Int, take: Int, where: ExercisingSessionWhereInput): [ExercisingSessionGroupBy!]!
   groupByMuscleGroup(by: [MuscleGroupScalarFieldEnum!]!, having: MuscleGroupScalarWhereWithAggregatesInput, orderBy: [MuscleGroupOrderByWithAggregationInput!], skip: Int, take: Int, where: MuscleGroupWhereInput): [MuscleGroupGroupBy!]!
@@ -1473,51 +1165,51 @@ input StringWithAggregatesFilter {
 }
 
 type TimeBox {
-  closedAt: DateTime!
   createdAt: DateTime!
-  exercisingSession: ExercisingSession!
-  exercisingSessionId: Int!
+  end: DateTime!
+  exercisingSession: ExercisingSession
+  exercisingSessionId: String
   id: String!
   resting: Boolean!
+  start: DateTime!
   updatedAt: DateTime!
-}
-
-type TimeBoxAvgAggregate {
-  exercisingSessionId: Float
-}
-
-input TimeBoxAvgOrderByAggregateInput {
-  exercisingSessionId: SortOrder
 }
 
 type TimeBoxCountAggregate {
   _all: Int!
-  closedAt: Int!
   createdAt: Int!
+  end: Int!
   exercisingSessionId: Int!
   id: Int!
   resting: Int!
+  start: Int!
   updatedAt: Int!
 }
 
 input TimeBoxCountOrderByAggregateInput {
-  closedAt: SortOrder
+  end: SortOrder
   exercisingSessionId: SortOrder
   id: SortOrder
   resting: SortOrder
+  start: SortOrder
+  updatedAt: SortOrder
 }
 
 input TimeBoxCreateInput {
-  closedAt: DateTime!
-  exercisingSession: ExercisingSessionCreateNestedOneWithoutTimeBoxInput!
+  end: DateTime!
+  exercisingSession: ExercisingSessionCreateNestedOneWithoutTimeBoxInput
   id: String
   resting: Boolean
+  start: DateTime!
+  updatedAt: DateTime
 }
 
 input TimeBoxCreateManyExercisingSessionInput {
-  closedAt: DateTime!
+  end: DateTime!
   id: String
   resting: Boolean
+  start: DateTime!
+  updatedAt: DateTime
 }
 
 input TimeBoxCreateManyExercisingSessionInputEnvelope {
@@ -1526,10 +1218,12 @@ input TimeBoxCreateManyExercisingSessionInputEnvelope {
 }
 
 input TimeBoxCreateManyInput {
-  closedAt: DateTime!
-  exercisingSessionId: Int!
+  end: DateTime!
+  exercisingSessionId: String
   id: String
   resting: Boolean
+  start: DateTime!
+  updatedAt: DateTime
 }
 
 input TimeBoxCreateNestedManyWithoutExercisingSessionInput {
@@ -1545,22 +1239,23 @@ input TimeBoxCreateOrConnectWithoutExercisingSessionInput {
 }
 
 input TimeBoxCreateWithoutExercisingSessionInput {
-  closedAt: DateTime!
+  end: DateTime!
   id: String
   resting: Boolean
+  start: DateTime!
+  updatedAt: DateTime
 }
 
 type TimeBoxGroupBy {
-  _avg: TimeBoxAvgAggregate
   _count: TimeBoxCountAggregate
   _max: TimeBoxMaxAggregate
   _min: TimeBoxMinAggregate
-  _sum: TimeBoxSumAggregate
-  closedAt: DateTime!
   createdAt: DateTime!
-  exercisingSessionId: Int!
+  end: DateTime!
+  exercisingSessionId: String
   id: String!
   resting: Boolean!
+  start: DateTime!
   updatedAt: DateTime!
 }
 
@@ -1571,35 +1266,41 @@ input TimeBoxListRelationFilter {
 }
 
 type TimeBoxMaxAggregate {
-  closedAt: DateTime
   createdAt: DateTime
-  exercisingSessionId: Int
+  end: DateTime
+  exercisingSessionId: String
   id: String
   resting: Boolean
+  start: DateTime
   updatedAt: DateTime
 }
 
 input TimeBoxMaxOrderByAggregateInput {
-  closedAt: SortOrder
+  end: SortOrder
   exercisingSessionId: SortOrder
   id: SortOrder
   resting: SortOrder
+  start: SortOrder
+  updatedAt: SortOrder
 }
 
 type TimeBoxMinAggregate {
-  closedAt: DateTime
   createdAt: DateTime
-  exercisingSessionId: Int
+  end: DateTime
+  exercisingSessionId: String
   id: String
   resting: Boolean
+  start: DateTime
   updatedAt: DateTime
 }
 
 input TimeBoxMinOrderByAggregateInput {
-  closedAt: SortOrder
+  end: SortOrder
   exercisingSessionId: SortOrder
   id: SortOrder
   resting: SortOrder
+  start: SortOrder
+  updatedAt: SortOrder
 }
 
 input TimeBoxOrderByRelationAggregateInput {
@@ -1607,31 +1308,34 @@ input TimeBoxOrderByRelationAggregateInput {
 }
 
 input TimeBoxOrderByWithAggregationInput {
-  _avg: TimeBoxAvgOrderByAggregateInput
   _count: TimeBoxCountOrderByAggregateInput
   _max: TimeBoxMaxOrderByAggregateInput
   _min: TimeBoxMinOrderByAggregateInput
-  _sum: TimeBoxSumOrderByAggregateInput
-  closedAt: SortOrder
+  end: SortOrder
   exercisingSessionId: SortOrder
   id: SortOrder
   resting: SortOrder
+  start: SortOrder
+  updatedAt: SortOrder
 }
 
 input TimeBoxOrderByWithRelationInput {
-  closedAt: SortOrder
+  end: SortOrder
   exercisingSession: ExercisingSessionOrderByWithRelationInput
   exercisingSessionId: SortOrder
   id: SortOrder
   resting: SortOrder
+  start: SortOrder
+  updatedAt: SortOrder
 }
 
 enum TimeBoxScalarFieldEnum {
-  closedAt
   createdAt
+  end
   exercisingSessionId
   id
   resting
+  start
   updatedAt
 }
 
@@ -1639,41 +1343,41 @@ input TimeBoxScalarWhereInput {
   AND: [TimeBoxScalarWhereInput!]
   NOT: [TimeBoxScalarWhereInput!]
   OR: [TimeBoxScalarWhereInput!]
-  closedAt: DateTimeFilter
-  exercisingSessionId: IntFilter
+  end: DateTimeFilter
+  exercisingSessionId: StringNullableFilter
   id: StringFilter
   resting: BoolFilter
+  start: DateTimeFilter
+  updatedAt: DateTimeFilter
 }
 
 input TimeBoxScalarWhereWithAggregatesInput {
   AND: [TimeBoxScalarWhereWithAggregatesInput!]
   NOT: [TimeBoxScalarWhereWithAggregatesInput!]
   OR: [TimeBoxScalarWhereWithAggregatesInput!]
-  closedAt: DateTimeWithAggregatesFilter
-  exercisingSessionId: IntWithAggregatesFilter
+  end: DateTimeWithAggregatesFilter
+  exercisingSessionId: StringNullableWithAggregatesFilter
   id: StringWithAggregatesFilter
   resting: BoolWithAggregatesFilter
-}
-
-type TimeBoxSumAggregate {
-  exercisingSessionId: Int
-}
-
-input TimeBoxSumOrderByAggregateInput {
-  exercisingSessionId: SortOrder
+  start: DateTimeWithAggregatesFilter
+  updatedAt: DateTimeWithAggregatesFilter
 }
 
 input TimeBoxUpdateInput {
-  closedAt: DateTimeFieldUpdateOperationsInput
-  exercisingSession: ExercisingSessionUpdateOneRequiredWithoutTimeBoxNestedInput
+  end: DateTimeFieldUpdateOperationsInput
+  exercisingSession: ExercisingSessionUpdateOneWithoutTimeBoxNestedInput
   id: StringFieldUpdateOperationsInput
   resting: BoolFieldUpdateOperationsInput
+  start: DateTimeFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
 }
 
 input TimeBoxUpdateManyMutationInput {
-  closedAt: DateTimeFieldUpdateOperationsInput
+  end: DateTimeFieldUpdateOperationsInput
   id: StringFieldUpdateOperationsInput
   resting: BoolFieldUpdateOperationsInput
+  start: DateTimeFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
 }
 
 input TimeBoxUpdateManyWithWhereWithoutExercisingSessionInput {
@@ -1701,9 +1405,11 @@ input TimeBoxUpdateWithWhereUniqueWithoutExercisingSessionInput {
 }
 
 input TimeBoxUpdateWithoutExercisingSessionInput {
-  closedAt: DateTimeFieldUpdateOperationsInput
+  end: DateTimeFieldUpdateOperationsInput
   id: StringFieldUpdateOperationsInput
   resting: BoolFieldUpdateOperationsInput
+  start: DateTimeFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
 }
 
 input TimeBoxUpsertWithWhereUniqueWithoutExercisingSessionInput {
@@ -1716,11 +1422,13 @@ input TimeBoxWhereInput {
   AND: [TimeBoxWhereInput!]
   NOT: [TimeBoxWhereInput!]
   OR: [TimeBoxWhereInput!]
-  closedAt: DateTimeFilter
+  end: DateTimeFilter
   exercisingSession: ExercisingSessionRelationFilter
-  exercisingSessionId: IntFilter
+  exercisingSessionId: StringNullableFilter
   id: StringFilter
   resting: BoolFilter
+  start: DateTimeFilter
+  updatedAt: DateTimeFilter
 }
 
 input TimeBoxWhereUniqueInput {

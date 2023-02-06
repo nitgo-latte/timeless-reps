@@ -8,10 +8,10 @@ import { Difficulty } from "../../enums/Difficulty";
   isAbstract: true
 })
 export class ExerciseMaxAggregate {
-  @TypeGraphQL.Field(_type => TypeGraphQL.Int, {
+  @TypeGraphQL.Field(_type => String, {
     nullable: true
   })
-  id!: number | null;
+  id!: string | null;
 
   @TypeGraphQL.Field(_type => String, {
     nullable: true

@@ -2,7 +2,7 @@ import * as TypeGraphQL from "type-graphql";
 import * as GraphQLScalars from "graphql-scalars";
 import { Prisma } from "@prisma/client";
 import { DecimalJSScalar } from "../../scalars";
-import { IntWithAggregatesFilter } from "../inputs/IntWithAggregatesFilter";
+import { EnumMuscleGroupEnumWithAggregatesFilter } from "../inputs/EnumMuscleGroupEnumWithAggregatesFilter";
 import { StringWithAggregatesFilter } from "../inputs/StringWithAggregatesFilter";
 
 @TypeGraphQL.InputType("MuscleGroupScalarWhereWithAggregatesInput", {
@@ -24,13 +24,13 @@ export class MuscleGroupScalarWhereWithAggregatesInput {
   })
   NOT?: MuscleGroupScalarWhereWithAggregatesInput[] | undefined;
 
-  @TypeGraphQL.Field(_type => IntWithAggregatesFilter, {
-    nullable: true
-  })
-  id?: IntWithAggregatesFilter | undefined;
-
   @TypeGraphQL.Field(_type => StringWithAggregatesFilter, {
     nullable: true
   })
-  name?: StringWithAggregatesFilter | undefined;
+  id?: StringWithAggregatesFilter | undefined;
+
+  @TypeGraphQL.Field(_type => EnumMuscleGroupEnumWithAggregatesFilter, {
+    nullable: true
+  })
+  name?: EnumMuscleGroupEnumWithAggregatesFilter | undefined;
 }

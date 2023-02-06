@@ -11,6 +11,11 @@ import { Difficulty } from "../../enums/Difficulty";
 })
 export class ExerciseCreateInput {
   @TypeGraphQL.Field(_type => String, {
+    nullable: true
+  })
+  id?: string | undefined;
+
+  @TypeGraphQL.Field(_type => String, {
     nullable: false
   })
   name!: string;
@@ -21,9 +26,9 @@ export class ExerciseCreateInput {
   muscleGroups?: MuscleGroupCreateNestedManyWithoutExercisesInput | undefined;
 
   @TypeGraphQL.Field(_type => Difficulty, {
-    nullable: false
+    nullable: true
   })
-  difficulty!: "EASY" | "MEDIUM" | "HARD";
+  difficulty?: "EASY" | "MEDIUM" | "HARD" | undefined;
 
   @TypeGraphQL.Field(_type => ExercisingSessionCreateNestedManyWithoutExerciseInput, {
     nullable: true

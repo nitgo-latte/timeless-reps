@@ -6,9 +6,9 @@ import { transformInfoIntoPrismaArgs, getPrismaFromContext, transformCountFieldI
 @TypeGraphQL.Resolver(_of => TimeBox)
 export class TimeBoxRelationsResolver {
   @TypeGraphQL.FieldResolver(_type => ExercisingSession, {
-    nullable: false
+    nullable: true
   })
-  async exercisingSession(@TypeGraphQL.Root() timeBox: TimeBox, @TypeGraphQL.Ctx() ctx: any): Promise<ExercisingSession> {
+  async exercisingSession(@TypeGraphQL.Root() timeBox: TimeBox, @TypeGraphQL.Ctx() ctx: any): Promise<ExercisingSession | null> {
     return getPrismaFromContext(ctx).timeBox.findUnique({
       where: {
         id: timeBox.id,
