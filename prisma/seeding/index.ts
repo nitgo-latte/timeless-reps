@@ -81,7 +81,6 @@ const createExercises = async () => {
 }
 
 const syncExerciseToMuscleGroups = async () => {
-  console.log("syncing exercises to muscle groups...")
   const muscleGroups = await prisma.muscleGroup.findMany()
   const muscleGroupIds = muscleGroups.map((mg) => mg.id)
   const exercises = await prisma.exercise.findMany()
@@ -99,6 +98,7 @@ const syncExerciseToMuscleGroups = async () => {
 
     await prisma.$queryRawUnsafe(query)
   })
+  console.log("syncing exercises to muscle groups...")
 }
 
 const syncTimeBoxesToSessions = async () => {
@@ -108,7 +108,6 @@ const syncTimeBoxesToSessions = async () => {
     to: new Date(),
     length: 78,
   })
-  console.log("exSessions.length", exSessions.length)
   const seenDays = new Set<string>()
   let deleteCount = randNumber({ min: 2, max: 7 })
   while (exSessions.length > 0) {
@@ -125,9 +124,6 @@ const syncTimeBoxesToSessions = async () => {
 
     for (let session of deleted) {
       const boxes = await createDummyTimeBoxes(timestamp)
-      console.log(
-        `syncing ${boxes.length} boxes to session with id ${session.id}`
-      )
       const values = boxes.map((box) => `'${box.id}'`)
       const query = `UPDATE "TimeBox" SET "exercisingSessionId" = '${
         session.id
